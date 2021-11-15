@@ -32,7 +32,8 @@ function Contact() {
       const emailTemplateId = "template_g4g1nwr"
       const serviceId = "service_9x8176i";
       sendFeedback(emailTemplateId, serviceId, {
-        message_html: formdata.message,
+        name: formdata.name,
+        message: formdata.message,
         subject: formdata.subject,
         from_name: formdata.name,
         reply_to: formdata.email
@@ -51,7 +52,7 @@ function Contact() {
       .catch(err => {
         setError(true);
         setMessage("Message Failed to Send");
-        console.error('Oh well, you failed. Here some thoughts on the error that occured:', err)
+        console.error('Oh well, you failed. Here some thoughts on the error that occurred:', err)
       })
   }
 
