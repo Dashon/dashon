@@ -45,7 +45,7 @@ const progressData = [
   },
 ];
 const yearsOfExperience = new Date().getFullYear() - 2007;
-const coffeesPerDay = .4
+const coffeesPerDay = 1
 const workdaysInAYear = 261
 const counterData = [
   {
