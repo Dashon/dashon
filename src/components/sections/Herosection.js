@@ -70,9 +70,12 @@ function Herosection(props) {
               spy={true}
               smooth={true}
               duration={500}
+              style={{ marginRight: 20 }}
             >
               Hire me
             </Link>
+            <a href="/Resume-Dashon-Howard.pdf" target="__dashonExt" className="btn btn-default">
+              View CV</a>
           </div>
         </div>
 

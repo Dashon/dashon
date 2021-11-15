@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 import Pagetitle from "../elements/Pagetitle";
-
+import emailjs, { init } from 'emailjs-com';
+init("user_tR68hAwlNzWdsn6Tjfwp1");
 function Contact() {
   const [formdata, setFormdata] = useState({
     name: "",
@@ -28,11 +29,31 @@ function Contact() {
       setError(true);
       setMessage("Message is required");
     } else {
-      setError(true);
-     // setMessage("You message has been sent!!!");
-      setMessage("Failed to send!! Please email i@dashon.co");
+      const emailTemplateId = "template_g4g1nwr"
+      const serviceId = "service_9x8176i";
+      sendFeedback(emailTemplateId, serviceId, {
+        message_html: formdata.message,
+        subject: formdata.subject,
+        from_name: formdata.name,
+        reply_to: formdata.email
+      })
     }
+
   };
+
+  const sendFeedback = (emailTemplateId, serviceId, variables) => {
+    emailjs.send(serviceId, emailTemplateId, variables)
+      .then(res => {
+        setError(false);
+        setMessage("You message has been sent!!!");
+      })
+      // Handle errors here however you like, or use a React error boundary
+      .catch(err => {
+        setError(true);
+        setMessage("Message Failed to Send");
+        console.error('Oh well, you failed. Here some thoughts on the error that occured:', err)
+      })
+  }
 
   const handleChange = (event) => {
     setFormdata({
@@ -82,8 +103,6 @@ function Contact() {
           <div className="col-md-8">
             <form
               id="contact-form"
-              action="mailto:i@dashon.co"
-
               className="contact-form mt-6"
               onSubmit={submitHandler}
             >

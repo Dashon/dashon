@@ -8,7 +8,8 @@ const aboutContent = {
   name: "Dashon",
   avatarImage: "/images/dashon.png",
   content:
-    `Hi! My name is Dashon Howard. I am a senior engineer who builds Desktop, Mobile and Web applications. During my 14+ years of experience as a full stack developer, I have acquired the skills and knowledge necessary to make your project a success.`
+    `Hi! My name is Dashon Howard. I am a senior engineer who builds Desktop, Mobile and Web applications. ` +
+    `During my 14+ years of experience as a full stack developer, I have acquired the skills and knowledge necessary to make your project a success.`
 };
 
 const progressData = [
@@ -91,6 +92,10 @@ function About() {
               <div className="row">
                 <div className="col-md-6">
                   <p>{aboutContent.content}</p>
+                  <div className="mt-3">
+                    <a href="/Resume-Dashon-Howard.pdf" target="__dashonExt" className="btn btn-default">
+                      View CV</a>
+                  </div>
                   <div className="mt-3">
                     <a href="/Resume-Dashon-Howard.pdf" download className="btn btn-default">
                       Download CV
