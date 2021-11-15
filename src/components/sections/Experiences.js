@@ -8,7 +8,7 @@ const educationData = [
     title: "Golf Coast Solutions (Contract)",
     years: "May 2021 - Present",
     content:
-      "Responsible for the full-stack development of various applications using .NET and ReactJS."
+      "Responsible for the full-stack development of various applications using .NET, NodeJS and ReactJS."
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const educationData = [
     title: "ChopDawg (Contract)",
     years: "May 2020 - Jan 2021",
     content:
-      "Worked with a team of contractors on various projects, primarily using Laravel, ReactJS and SQL. Led the " +
+      "Worked with a team of contractors on various projects, primarily using NodeJS or Laravel, ReactJS and SQL. Led the " +
       "development of a blockchain application that utilized smart contracts interacting with smart home devices.",
   },
   {
@@ -40,7 +40,7 @@ const educationData = [
 
 const experienceData = [{
   id: 1,
-  title: "Lextech Global Services",
+  title: "Lextech Global Services (Contract)",
   years: "May 2019 - Sep 2019",
   content:
     "Responsible for the support and development of a PHP Laravel single page web application. While I was primarily " +
@@ -52,7 +52,7 @@ const experienceData = [{
   years: "May 2017 - Apr 2019",
   content:
     "Assisted in the development of multiple brochure websites built using modular architecture " +
-    "using various content management systems. Using HandlebarsJS, ReactJS, SQL, Wordpress, Kentico CMS, and ASP.NET.",
+    "using various content management systems. Using HandlebarsJS, ReactJS, SQL, Wordpress, Kentico CMS, NodeJS and .NET.",
 },
 {
   id: 3,
@@ -60,7 +60,7 @@ const experienceData = [{
   years: "Nov 2013 - May 2017",
   content:
     "Working with a great team of medical software professionals, building exciting applications for industry leaders " +
-    "using an array of languages, including .NET, NodeJs, PHP, Ruby, Swift, Java, SQL, ReactJS and AngularJS. I Assistant " +
+    "using an array of languages, including .NET, NodeJS, PHP, Ruby, Swift, Java, SQL, ReactJS and AngularJS. I Assistant " +
     "in the development of multiple mobile applications that captures and displays data from medical devices over Bluetooth LE."
 },
 {
@@ -68,8 +68,8 @@ const experienceData = [{
   title: "Virtual OfficeWare Healthcare Solutions",
   years: "Oct 2007 - Nov 2013 ",
   content:
-    "Introduced a C# ASP.NET MVC web application that runs automatic compatibility tests on Crystal Reports against multiple "+
-    "versions of Centricity EMR. I introduced an ASP.NET MVC web application that uses C# & VB to convert medical intake forms "+
+    "Introduced a C# ASP.NET MVC web application that runs automatic compatibility tests on Crystal Reports against multiple " +
+    "versions of Centricity EMR. I introduced an ASP.NET MVC web application that uses C# & VB to convert medical intake forms " +
     "into HTML & CSS. I also conducted monthly 3-Day end-user training classes with healthcare professionals",
 }
 ];

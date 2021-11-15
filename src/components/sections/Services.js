@@ -27,7 +27,7 @@ const servicesData = [
     icon: "images/Solidity.png",
     title: "Blockchain Development",
     content:
-      "Collaborated with colleagues from other departments and participated in the creation and testing of new  Blockchain technologies..",
+      "Collaborated with colleagues from other departments and participated in the creation and testing of new  Blockchain technologies",
     color: "#F97B8B",
     contentColor: "light",
   },
