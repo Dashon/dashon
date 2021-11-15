@@ -13,6 +13,8 @@ function Contact() {
 
   const [error, setError] = useState(false);
   const [message, setMessage] = useState("");
+  const [sending, setSending] = useState(false);
+  const [messageSent, setMessageSent] = useState(false);
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -43,17 +45,20 @@ function Contact() {
   };
 
   const sendFeedback = (emailTemplateId, serviceId, variables) => {
+    setSending(true);
     emailjs.send(serviceId, emailTemplateId, variables)
       .then(res => {
         setError(false);
         setMessage("You message has been sent!!!");
+        setMessageSent(true);
       })
       // Handle errors here however you like, or use a React error boundary
       .catch(err => {
         setError(true);
         setMessage("Message Failed to Send");
+        setMessageSent(false);
         console.error('Oh well, you failed. Here some thoughts on the error that occurred:', err)
-      })
+      }).finally(setSending(false))
   }
 
   const handleChange = (event) => {
@@ -170,8 +175,10 @@ function Contact() {
                 id="submit"
                 value="Submit"
                 className="btn btn-default"
+                style={{backgroundColor:messageSent?"green˝":"#FF4C60"}}
+                disabled={sending || messageSent}
               >
-                Send Message
+                {error ? "Try Again?" : sending ? "Sending..." : messageSent ? "Email Sent" : "Send Message"}
               </button>
             </form>
             {handleAlerts()}
