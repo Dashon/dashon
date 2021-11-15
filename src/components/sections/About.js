@@ -6,7 +6,7 @@ import Skill from "../elements/Skill";
 
 const aboutContent = {
   name: "Dashon",
-  avatarImage: "/images/avatar-2.svg",
+  avatarImage: "/images/dashon.png",
   content:
     `Hi! My name is Dashon Howard. I am a senior engineer who builds Desktop, Mobile and Web applications. During my 14+ years of experience as a full stack developer, I have acquired the skills and knowledge necessary to make your project a success.`
 };
