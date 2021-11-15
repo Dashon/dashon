@@ -28,8 +28,9 @@ function Contact() {
       setError(true);
       setMessage("Message is required");
     } else {
-      setError(false);
-      setMessage("You message has been sent!!!");
+      setError(true);
+     // setMessage("You message has been sent!!!");
+      setMessage("Failed to send!! Please email i@dashon.co");
     }
   };
 
@@ -72,7 +73,7 @@ function Contact() {
               >
                 <p>
                   Don't like forms? Send me an{" "}
-                  <a href="mailto:name@example.com">email</a>. 👋
+                  <a href="mailto:i@dashon.co">email</a>. 👋
                 </p>
               </ScrollAnimation>
             </div>
