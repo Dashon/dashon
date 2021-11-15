@@ -81,6 +81,8 @@ function Contact() {
           <div className="col-md-8">
             <form
               id="contact-form"
+              action="mailto:i@dashon.co"
+
               className="contact-form mt-6"
               onSubmit={submitHandler}
             >

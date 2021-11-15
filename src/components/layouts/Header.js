@@ -107,6 +107,7 @@ function Header({ light, logoSource, toggleMenu, headerToggler }) {
                 <i className="icon-note"></i>Blog
               </Link>
             </li>
+            */}
             <li>
               <Link
                 activeClass="active"
@@ -117,7 +118,7 @@ function Header({ light, logoSource, toggleMenu, headerToggler }) {
               >
                 <i className="icon-bubbles"></i>Contact
               </Link>
-            </li> */}
+            </li> 
           </ul>
         </nav>
 

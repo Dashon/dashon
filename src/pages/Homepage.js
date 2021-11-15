@@ -64,10 +64,10 @@ function Homepage() {
         </Element> 
          <Element name="section-blogs">
           <Blogs />
-        </Element>
+        </Element>*/}
         <Element name="section-contact">
           <Contact />
-        </Element> */}
+        </Element> 
         <div className="spacer" data-height="96"></div>
       </main>
     </>
