@@ -39,7 +39,7 @@ const progressData = [
   },
   {
     id: 3,
-    title: "Blockchain",
+    title: "Blockchain(MetaMask)",
     percantage: 50,
     progressColor: "#6C6CE5",
   },

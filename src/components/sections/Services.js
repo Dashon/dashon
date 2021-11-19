@@ -24,10 +24,10 @@ const servicesData = [
   },
   {
     id: 3,
-    icon: "images/Solidity.png",
+    icon: "images/metamask.svg",
     title: "Blockchain Development",
     content:
-      "Collaborated with colleagues from other departments and participated in the creation and testing of new  Blockchain technologies",
+      "Collaborated with colleagues from other departments and participated in the creation and testing of new decentralized applications using Web3 and MetaMask",
     color: "#F97B8B",
     contentColor: "light",
   },
