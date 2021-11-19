@@ -25,7 +25,7 @@ const educationData = [
     years: "May 2020 - Jan 2021",
     content:
       "Worked with a team of contractors on various projects, primarily using, NodeJS, Laravel, ReactJS, and SQL. "+
-      "Led the development of a blockchain application that utilized Soldity contracts, web3JS, and Metamask interfacing with smart home devices. ",
+      "Led the development of a blockchain application that utilized Solidity contracts, web3JS, and Metamask interfacing with smart home devices. ",
   },
   {
     id: 4,
