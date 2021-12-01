@@ -80,12 +80,14 @@ const downloadPdfHandler = () => {
     category: 'ViewButton',
     action: 'Resume'
   });
+  console.log("Send");
 }
 const viewPdfHandler = () => {
   ReactGA.event({
     category: 'DownloadButton',
     action: 'Resume'
   });
+  console.log("Send");
 }
 
 function About() {

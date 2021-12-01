@@ -13,6 +13,13 @@ function Herosection(props) {
     };
   };
 
+  const viewPdfHandler = () => {
+    ReactGA.event({
+      category: 'DownloadButton',
+      action: 'Resume'
+    });
+    console.log("Send");
+  }
   return (
     <section
       id="home"
@@ -74,7 +81,7 @@ function Herosection(props) {
             >
               Hire me
             </Link>
-            <a href="/Resume-Dashon-Howard.pdf" target="__dashonExt" className="btn btn-default">
+            <a href="/Resume-Dashon-Howard.pdf" onClick={viewPdfHandler} target="__dashonExt" className="btn btn-default">
               View CV</a>
           </div>
         </div>
