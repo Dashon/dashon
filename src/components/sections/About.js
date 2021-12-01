@@ -3,6 +3,7 @@ import TrackVisibility from "react-on-screen";
 import Counter from "../elements/Counter";
 import Pagetitle from "../elements/Pagetitle";
 import Skill from "../elements/Skill";
+import ReactGA from 'react-ga';
 
 const aboutContent = {
   name: "Dashon",
@@ -74,6 +75,19 @@ const counterData = [
   },
 ];
 
+const downloadPdfHandler = () => {
+  ReactGA.event({
+    category: 'ViewButton',
+    action: 'Resume'
+  });
+}
+const viewPdfHandler = () => {
+  ReactGA.event({
+    category: 'DownloadButton',
+    action: 'Resume'
+  });
+}
+
 function About() {
   return (
     <section id="about">
@@ -93,11 +107,11 @@ function About() {
                 <div className="col-md-6">
                   <p>{aboutContent.content}</p>
                   <div className="mt-3">
-                    <a href="/Resume-Dashon-Howard.pdf" target="__dashonExt" className="btn btn-default">
+                    <a href="/Resume-Dashon-Howard.pdf" onclick={viewPdfHandler} target="__dashonExt" className="btn btn-default">
                       View CV</a>
                   </div>
                   <div className="mt-3">
-                    <a href="/Resume-Dashon-Howard.pdf" download className="btn btn-default">
+                    <a href="/Resume-Dashon-Howard.pdf" download onclick={downloadPdfHandler} className="btn btn-default">
                       Download CV
                     </a>
                   </div>
