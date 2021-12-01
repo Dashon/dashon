@@ -1,6 +1,7 @@
 import React from "react";
 import Typed from "react-typed";
 import { Link } from "react-scroll";
+import ReactGA from 'react-ga';
 
 function Herosection(props) {
   const { x, y } = props.position;
