@@ -1,6 +1,7 @@
 import React from "react";
 import Pagetitle from "../elements/Pagetitle";
 import Timeline from "../elements/Timeline";
+import ReactGA from 'react-ga';
 
 const educationData = [
   {
@@ -24,7 +25,7 @@ const educationData = [
     title: "ChopDawg (Contract)",
     years: "May 2020 - Jan 2021",
     content:
-      "Worked with a team of contractors on various projects, primarily using, NodeJS, Laravel, ReactJS, and SQL. "+
+      "Worked with a team of contractors on various projects, primarily using, NodeJS, Laravel, ReactJS, and SQL. " +
       "Led the development of a blockchain application that utilized Solidity contracts, web3JS, and Metamask interfacing with smart home devices. ",
   },
   {
@@ -74,6 +75,19 @@ const experienceData = [{
 }
 ];
 
+const viewPdfHandler = () => {
+  ReactGA.event({
+    category: 'resume',
+    action: "view_file"
+  });
+}
+const downloadPdfHandler = () => {
+  ReactGA.event({
+    category: 'resume',
+    action: "download_file"
+  });
+}
+
 function Experiences() {
   return (
     <section id="experience">
@@ -97,6 +111,20 @@ function Experiences() {
               ))}
               <span className="line"></span>
             </div>
+          </div>
+
+          <div className="mt-5 text-center">
+            <p className="mb-0">
+              View My Resume<br />
+              <div className="mt-4">
+
+                <a style={{marginRight:10}} eventLabel="download_resume" href="/Resume-Dashon-Howard.pdf" onClick={downloadPdfHandler} download className="btn btn-default">
+                  Download CV
+                    </a>
+                <a href="/Resume-Dashon-Howard.pdf" onClick={viewPdfHandler} target="__dashonExt" className="btn btn-default">
+                  View CV</a>
+              </div>
+            </p>
           </div>
         </div>
       </div>

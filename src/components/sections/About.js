@@ -30,19 +30,19 @@ const progressData = [
     id: 3,
     title: "PHP",
     percantage: 80,
-    progressColor: "#6C6CE5",
+    progressColor: "#3A6CE9",
   },
   {
-    id: 3,
+    id: 4,
     title: "ReactJS",
     percantage: 90,
-    progressColor: "#6C6CE5",
+    progressColor: "#7C6C45",
   },
   {
-    id: 3,
+    id: 5,
     title: "Blockchain(MetaMask)",
     percantage: 50,
-    progressColor: "#6C6CE5",
+    progressColor: "#9C2CE5",
   },
 ];
 const yearsOfExperience = new Date().getFullYear() - 2007;
@@ -75,21 +75,18 @@ const counterData = [
   },
 ];
 
-const downloadPdfHandler = () => {
-  ReactGA.event({
-    category: 'ViewButton',
-    action: 'Resume'
-  });
-  console.log("Send");
-}
 const viewPdfHandler = () => {
   ReactGA.event({
-    category: 'DownloadButton',
-    action: 'Resume'
+    category: 'resume',
+    action:"view_file"
   });
-  console.log("Send");
 }
-
+const downloadPdfHandler = () => {
+  ReactGA.event({
+    category: 'resume',
+    action:"download_file"
+  });
+}
 function About() {
   return (
     <section id="about">
@@ -109,11 +106,11 @@ function About() {
                 <div className="col-md-6">
                   <p>{aboutContent.content}</p>
                   <div className="mt-3">
-                    <a href="/Resume-Dashon-Howard.pdf" onclick={viewPdfHandler} target="__dashonExt" className="btn btn-default">
+                    <a action="view_file" href="/Resume-Dashon-Howard.pdf" onClick={viewPdfHandler}  target="__dashonExt" className="btn btn-default">
                       View CV</a>
                   </div>
                   <div className="mt-3">
-                    <a href="/Resume-Dashon-Howard.pdf" download onclick={downloadPdfHandler} className="btn btn-default">
+                    <a eventLabel="download_resume" href="/Resume-Dashon-Howard.pdf" onClick={downloadPdfHandler} download className="btn btn-default">
                       Download CV
                     </a>
                   </div>
