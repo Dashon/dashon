@@ -91,7 +91,7 @@ function About() {
   return (
     <section id="about">
       <div className="container">
-        <Pagetitle title="About Me" />
+        <Pagetitle title="About Dashon" />
         <div className="row">
           <div className="col-md-3">
             <div className="text-center text-md-left">
