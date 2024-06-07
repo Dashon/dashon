@@ -1,7 +1,7 @@
 import React from "react";
 import Typed from "react-typed";
 import { Link } from "react-scroll";
-import ReactGA from 'react-ga';
+import ReactGA from "react-ga";
 
 function Herosection(props) {
   const { x, y } = props.position;
@@ -33,6 +33,7 @@ function Herosection(props) {
             <Typed
               strings={[
                 "Senior Software Engineer",
+                "Digital Nomad",
                 "Full Stack Developer",
                 "Travel Nerd",
                 "Scuba Diver",

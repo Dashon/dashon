@@ -3,14 +3,14 @@ import TrackVisibility from "react-on-screen";
 import Counter from "../elements/Counter";
 import Pagetitle from "../elements/Pagetitle";
 import Skill from "../elements/Skill";
-import ReactGA from 'react-ga';
+import ReactGA from "react-ga";
 
 const aboutContent = {
   name: "Dashon",
   avatarImage: "/images/dashon.png",
   content:
     `Hi! My name is Dashon Howard. I am a senior engineer who builds Desktop, Mobile and Web applications. ` +
-    `During my 14+ years of experience as a full stack developer, I have acquired the skills and knowledge necessary to make your project a success.`
+    `During my 14+ years of experience as a full stack developer, I have acquired the skills and knowledge necessary to make your project a success.`,
 };
 
 const progressData = [
@@ -46,8 +46,8 @@ const progressData = [
   },
 ];
 const yearsOfExperience = new Date().getFullYear() - 2007;
-const coffeesPerDay = 1
-const workdaysInAYear = 261
+const coffeesPerDay = 1;
+const workdaysInAYear = 261;
 const counterData = [
   {
     id: 1,
@@ -77,16 +77,16 @@ const counterData = [
 
 const viewPdfHandler = () => {
   ReactGA.event({
-    category: 'resume',
-    action:"view_file"
+    category: "resume",
+    action: "view_file",
   });
-}
+};
 const downloadPdfHandler = () => {
   ReactGA.event({
-    category: 'resume',
-    action:"download_file"
+    category: "resume",
+    action: "download_file",
   });
-}
+};
 function About() {
   return (
     <section id="about">
@@ -106,11 +106,24 @@ function About() {
                 <div className="col-md-6">
                   <p>{aboutContent.content}</p>
                   <div className="mt-3">
-                    <a action="view_file" href="/Resume-Dashon-Howard.pdf" onClick={viewPdfHandler}  target="__dashonExt" className="btn btn-default">
-                      View CV</a>
+                    <a
+                      action="view_file"
+                      href="/Resume-Dashon-Howard-2024.docx"
+                      onClick={viewPdfHandler}
+                      target="__dashonExt"
+                      className="btn btn-default"
+                    >
+                      View CV
+                    </a>
                   </div>
                   <div className="mt-3">
-                    <a eventLabel="download_resume" href="/Resume-Dashon-Howard.pdf" onClick={downloadPdfHandler} download className="btn btn-default">
+                    <a
+                      eventLabel="download_resume"
+                      href="/Resume-Dashon-Howard-2024.docx"
+                      onClick={downloadPdfHandler}
+                      download
+                      className="btn btn-default"
+                    >
                       Download CV
                     </a>
                   </div>
