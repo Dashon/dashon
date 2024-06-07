@@ -118,7 +118,7 @@ function Experiences() {
                 <a
                   style={{ marginRight: 10 }}
                   eventLabel="download_resume"
-                  href="/Resume-Dashon-Howard-2024.docx"
+                  href="/Resume-Dashon-Howard-2024.pdf"
                   onClick={downloadPdfHandler}
                   download
                   className="btn btn-default"
@@ -126,7 +126,7 @@ function Experiences() {
                   Download CV
                 </a>
                 <a
-                  href="/Resume-Dashon-Howard-2024.docx"
+                  href="/Resume-Dashon-Howard-2024.pdf"
                   onClick={viewPdfHandler}
                   target="__dashonExt"
                   className="btn btn-default"

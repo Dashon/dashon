@@ -108,7 +108,7 @@ function About() {
                   <div className="mt-3">
                     <a
                       action="view_file"
-                      href="/Resume-Dashon-Howard-2024.docx"
+                      href="/Resume-Dashon-Howard-2024.pdf"
                       onClick={viewPdfHandler}
                       target="__dashonExt"
                       className="btn btn-default"
@@ -119,7 +119,7 @@ function About() {
                   <div className="mt-3">
                     <a
                       eventLabel="download_resume"
-                      href="/Resume-Dashon-Howard-2024.docx"
+                      href="/Resume-Dashon-Howard-2024.pdf"
                       onClick={downloadPdfHandler}
                       download
                       className="btn btn-default"
