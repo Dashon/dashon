@@ -58,13 +58,13 @@ const counterData = [
   {
     id: 2,
     title: "Companies Explored",
-    count: 8,
+    count: 9,
     icon: "icon-briefcase",
   },
   {
     id: 3,
     title: "Clients Satisfied",
-    count: 29,
+    count: 31,
     icon: "icon-people",
   },
   {
