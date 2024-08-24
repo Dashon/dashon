@@ -19,7 +19,7 @@ I'm Dashon, a skilled Software Engineer and Product Engineering Manager with ove
   </a>
 </p>
 
-[![ReadMe Card](https://github-readme-stats.vercel.app/api?username=dashon&show_icons=true&include_all_commits=true&hide_rank=true&bg_color=30,FF5F6D,ffb88c&title_color=fff&text_color=fff&icon_color=fff)](https://github.com/dashon/github-readme-stats)
+[![ReadMe Card](https://github-readme-stats.vercel.app/api?username=dashon&show_icons=true&include_all_commits=true&hide_rank=true&bg_color=30,FF5F6D,ffb88c&title_color=fff&text_color=fff&icon_color=fff)]
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=dashon&theme=gotham&hide_border=true&layout=compact&langs_count=6" alt="dashon" align="right">
 
 
