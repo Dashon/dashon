@@ -66,3 +66,16 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## PostHog Analytics
+
+PostHog is an open-source product analytics platform that helps you understand how users interact with your product. It provides a suite of tools for tracking events, user properties, and session recordings, allowing you to make data-driven decisions to improve your product.
+
+### Key Features
+
+- **Event Tracking**: Track user interactions with your product, such as button clicks, page views, and form submissions.
+- **User Properties**: Track user attributes, such as name, email, and subscription plan.
+- **Session Recordings**: Record user sessions to understand how they interact with your product.
+- **Funnels**: Track user funnels to identify drop-off points in your product.
+- **Funnels**: Track user funnels to identify drop-off points in your product.
+- **Funnels**: Track user funnels to identify drop-off points in your product.
