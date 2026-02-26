@@ -11,16 +11,16 @@ export default defineConfig({
     outDir: 'build',
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
   },
   assetsInclude: ['**/*.md'],
   esbuild: {
     loader: 'jsx',
-    include: /src\/.*\.js$/,
+    include: /src\/.*\.jsx?$/,
     exclude: [],
   },
   optimizeDeps: {
-    esbuild: {
+    esbuildOptions: {
       loader: {
         '.js': 'jsx',
       },
