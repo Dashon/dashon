@@ -7,13 +7,24 @@ import "animate.css/animate.min.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import ReactGA from 'react-ga';
+import posthog from 'posthog-js';
+import { PostHogProvider } from 'posthog-js/react';
+
+posthog.init(
+  process.env.REACT_APP_PUBLIC_POSTHOG_KEY,
+  {
+    api_host: process.env.REACT_APP_PUBLIC_POSTHOG_HOST,
+  }
+);
 
 ReactGA.initialize('UA-103026218-2'); // add your tracking id here.
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <PostHogProvider client={posthog}>
+      <App />
+    </PostHogProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
