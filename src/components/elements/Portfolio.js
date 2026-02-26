@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import FsLightbox from "fslightbox-react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 function Portfolio({ portfolio }) {
   const { category, title, image, popupLink, link } = portfolio;
-  const [toggler, setToggler] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleLightbox = (e) => {
     if (!link) {
       e.preventDefault();
-      setToggler(!toggler);
+      setOpen(true);
     }
   };
 
@@ -29,6 +30,11 @@ function Portfolio({ portfolio }) {
     }
     return <i className="icon-magnifier-add"></i>;
   };
+
+  const slides = popupLink
+    ? popupLink.map((src) => ({ src }))
+    : [];
+
   return (
     <>
       <a
@@ -48,7 +54,13 @@ function Portfolio({ portfolio }) {
           </div>
         </div>
       </a>
-      {popupLink && <FsLightbox toggler={toggler} sources={popupLink} />}
+      {popupLink && (
+        <Lightbox
+          open={open}
+          close={() => setOpen(false)}
+          slides={slides}
+        />
+      )}
     </>
   );
 }

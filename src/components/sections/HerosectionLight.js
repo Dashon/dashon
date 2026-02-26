@@ -1,5 +1,5 @@
 import React from "react";
-import Typed from "react-typed";
+import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-scroll";
 
 function Herosection(props) {
@@ -22,24 +22,21 @@ function Herosection(props) {
           <h1 className="mb-2 mt-0">Dashon Howard</h1>
           <p>
             I'm a{" "}
-            <Typed
-              strings={[
-                "Senior Software Engineer",
-                "Full Stack Developer",
-                "Travel Nerd",
-                "Scuba Diver",
-                "BlockChain Developer",
-                "Senior Software Engineer",
-                "Crypto Hunter",
-                "Dog Lover",
+            <TypeAnimation
+              sequence={[
+                "Senior Software Engineer", 2000,
+                "Full Stack Developer", 2000,
+                "Travel Nerd", 2000,
+                "Scuba Diver", 2000,
+                "BlockChain Developer", 2000,
+                "Crypto Hunter", 2000,
+                "Dog Lover", 2000,
               ]}
-              typeSpeed={80}
-              backSpeed={40}
-              attr="value"
-              loop
-            >
-              <label value></label>
-            </Typed>
+              speed={50}
+              deletionSpeed={80}
+              repeat={Infinity}
+              wrapper="span"
+            />
           </p>
 
           <ul className="social-icons light list-inline mb-0 mt-4">
