@@ -3,7 +3,8 @@ import TrackVisibility from "react-on-screen";
 import Counter from "../elements/Counter";
 import Pagetitle from "../elements/Pagetitle";
 import Skill from "../elements/Skill";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
+import { usePostHog } from 'posthog-js/react';
 
 const aboutContent = {
   name: "Dashon",
@@ -75,19 +76,24 @@ const counterData = [
   },
 ];
 
-const viewPdfHandler = () => {
-  ReactGA.event({
-    category: "resume",
-    action: "view_file",
-  });
-};
-const downloadPdfHandler = () => {
-  ReactGA.event({
-    category: "resume",
-    action: "download_file",
-  });
-};
 function About() {
+  const posthog = usePostHog();
+
+  const viewPdfHandler = () => {
+    posthog.capture('resume_viewed');
+    ReactGA.event({
+      category: "resume",
+      action: "view_file",
+    });
+  };
+  const downloadPdfHandler = () => {
+    posthog.capture('resume_downloaded');
+    ReactGA.event({
+      category: "resume",
+      action: "download_file",
+    });
+  };
+
   return (
     <section id="about">
       <div className="container">

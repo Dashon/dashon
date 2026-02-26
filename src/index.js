@@ -6,23 +6,20 @@ import "slick-carousel/slick/slick-theme.css";
 import "animate.css/animate.min.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import ReactGA from 'react-ga';
-import posthog from 'posthog-js';
-import { PostHogProvider } from 'posthog-js/react';
+import ReactGA from 'react-ga4';
+import { PostHogProvider } from '@posthog/react';
 
-posthog.init(
-  process.env.REACT_APP_PUBLIC_POSTHOG_KEY,
-  {
-    api_host: process.env.REACT_APP_PUBLIC_POSTHOG_HOST,
-  }
-);
+const options = {
+  api_host: process.env.REACT_APP_PUBLIC_POSTHOG_HOST,
+  defaults: '2026-01-30',
+};
 
-ReactGA.initialize('UA-103026218-2'); // add your tracking id here.
-ReactGA.pageview(window.location.pathname + window.location.search);
+ReactGA.initialize(process.env.REACT_APP_PUBLIC_GA_MEASUREMENT_ID); // New GA4 Measurement ID
+ReactGA.send({ hitType: "pageview", page: window.location.pathname + window.location.search });
 
 ReactDOM.render(
   <React.StrictMode>
-    <PostHogProvider client={posthog}>
+    <PostHogProvider apiKey={process.env.REACT_APP_PUBLIC_POSTHOG_KEY} options={options}>
       <App />
     </PostHogProvider>
   </React.StrictMode>,

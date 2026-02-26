@@ -1,9 +1,11 @@
 import React from "react";
 import Typed from "react-typed";
 import { Link } from "react-scroll";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
+import { usePostHog } from 'posthog-js/react';
 
 function Herosection(props) {
+  const posthog = usePostHog();
   const { x, y } = props.position;
   const { height, width } = props.elementDimensions;
   const activeParallax = (depth = 15) => {
@@ -72,6 +74,7 @@ function Herosection(props) {
               spy={true}
               smooth={true}
               duration={500}
+              onClick={() => posthog.capture('hire_me_clicked')}
             >
               Hire me
             </Link>

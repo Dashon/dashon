@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 import Pagetitle from "../elements/Pagetitle";
 import emailjs, { init } from 'emailjs-com';
+import { usePostHog } from 'posthog-js/react';
+
 init("user_tR68hAwlNzWdsn6Tjfwp1");
 function Contact() {
+  const posthog = usePostHog();
   const [formdata, setFormdata] = useState({
     name: "",
     email: "",
@@ -48,12 +51,14 @@ function Contact() {
     setSending(true);
     emailjs.send(serviceId, emailTemplateId, variables)
       .then(res => {
+        posthog.capture('contact_form_submitted');
         setError(false);
         setMessage("You message has been sent!!!");
         setMessageSent(true);
       })
       // Handle errors here however you like, or use a React error boundary
       .catch(err => {
+        posthog.capture('contact_form_error', { error: err });
         setError(true);
         setMessage("Message Failed to Send");
         setMessageSent(false);

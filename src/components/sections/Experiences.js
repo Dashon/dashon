@@ -1,7 +1,8 @@
 import React from "react";
 import Pagetitle from "../elements/Pagetitle";
 import Timeline from "../elements/Timeline";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
+import { usePostHog } from 'posthog-js/react';
 
 const experienceData1 = [
   {
@@ -72,20 +73,24 @@ const experienceData2 = [
   },
 ];
 
-const viewPdfHandler = () => {
-  ReactGA.event({
-    category: "resume",
-    action: "view_file",
-  });
-};
-const downloadPdfHandler = () => {
-  ReactGA.event({
-    category: "resume",
-    action: "download_file",
-  });
-};
-
 function Experiences() {
+  const posthog = usePostHog();
+
+  const viewPdfHandler = () => {
+    posthog.capture('resume_viewed');
+    ReactGA.event({
+      category: "resume",
+      action: "view_file",
+    });
+  };
+  const downloadPdfHandler = () => {
+    posthog.capture('resume_downloaded');
+    ReactGA.event({
+      category: "resume",
+      action: "download_file",
+    });
+  };
+
   return (
     <section id="experience">
       <div className="container">
