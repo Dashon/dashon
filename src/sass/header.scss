@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 /*=================================================================*/
 /*                      HEADER                              
 /*=================================================================*/
@@ -514,7 +516,7 @@ header.mobile-header-2 {
 		background-clip: padding-box;
 		border: 0;
 		border-radius: .25rem;
-		@extend .shadow-dark;
+		@include shadow-dark;
 	}
 
 	button.navbar-toggler:focus {

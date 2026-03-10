@@ -11,7 +11,8 @@ import Herosection from "../components/sections/Herosection";
 import Pricing from "../components/sections/Pricing";
 import Services from "../components/sections/Services";
 import Testimonials from "../components/sections/Testimonials";
-import Works from "../components/sections/Works";
+import PortfolioSection from "../components/sections/PortfolioSection";
+import TechStack from "../components/sections/TechStack";
 
 function Homepage() {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -50,21 +51,12 @@ function Homepage() {
         <Element name="section-experiences">
           <Experiences />
         </Element>
-        {/* <Element name="section-works">
-          <Works />
+        <Element name="section-portfolio">
+          <PortfolioSection />
         </Element>
-        <Element name="section-pricing">
-          <Pricing />
+        <Element name="section-techstack">
+          <TechStack />
         </Element>
-        <Element name="section-testimoninal">
-          <Testimonials />
-        </Element>
-        <Element name="section-brandlogos">
-          <Brandlogos />
-        </Element> 
-         <Element name="section-blogs">
-          <Blogs />
-        </Element>*/}
         <Element name="section-contact">
           <Contact />
         </Element> 

@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 /*=================================================================*/
 /*                      SECTIONS                             
 /*=================================================================*/
@@ -29,8 +31,7 @@ main.content-2 {
   }
 }
 
-main.content-3 {
-}
+main.content-3 {}
 
 section {
   padding-top: 110px;
@@ -331,6 +332,7 @@ section.home {
     }
 
     .details {
+
       h4,
       span {
         opacity: 1;
@@ -659,8 +661,7 @@ select.portfolio-filter-mobile {
     }
   }
 
-  .blog-standard {
-  }
+  .blog-standard {}
 
   .blog-standard .meta {
     font-size: 14px;
@@ -824,7 +825,7 @@ select.portfolio-filter-mobile {
     display: flex;
   }
 
-  .comment-respond input[type="checkbox"] + label {
+  .comment-respond input[type="checkbox"]+label {
     font-size: 14px;
     margin-left: 10px;
   }

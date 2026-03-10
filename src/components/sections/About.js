@@ -10,7 +10,7 @@ const aboutContent = {
   name: "Dashon",
   avatarImage: "/images/dashon.png",
   content:
-    `Hi! My name is Dashon Howard. I am a senior engineer who builds Desktop, Mobile and Web applications. ` +
+    `Hi! My name is Dashon Howard. I am a senior engineer and Digital Nomad who builds Desktop, Mobile and Web applications. ` +
     `During my 14+ years of experience as a full stack developer, I have acquired the skills and knowledge necessary to make your project a success.`,
 };
 
@@ -151,6 +151,35 @@ function About() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="spacer" data-height="70"></div>
+        <div className="row">
+          <div className="col-md-12">
+             <div className="rounded bg-white shadow-dark padding-30">
+                <div className="row align-items-center">
+                  <div className="col-md-4">
+                     <h3 className="mb-3">Digital Nomad</h3>
+                     <p className="text-muted">Currently traveling the world while building top-tier software. Embracing the freedom of remote work and the inspiration of new cultures.</p>
+                     <ul className="list-unstyled mt-3">
+                        <li><i className="fas fa-map-marker-alt mr-2 text-primary"></i> Current Location: <strong>Tokyo, Japan</strong></li>
+                        <li><i className="fas fa-plane-departure mr-2 text-primary"></i> Next Stop: <strong>Seoul, South Korea</strong></li>
+                        <li><i className="fas fa-laptop-code mr-2 text-primary"></i> Working from: <strong>Anywhere with Coffee</strong></li>
+                     </ul>
+                  </div>
+                  <div className="col-md-8">
+                     <div className="nomad-map-container rounded overflow-hidden shadow-sm" style={{ border: "1px solid #eee", height: "250px", position: "relative" }}>
+                        <img src="/images/map-light.png" alt="Travel Map" style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.6 }} />
+                        <div className="map-overlay d-flex align-items-center justify-content-center" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "rgba(108, 108, 229, 0.05)" }}>
+                           <div className="text-center p-4 bg-white rounded shadow-lg border border-primary">
+                              <i className="fas fa-globe-americas fa-3x text-primary mb-2"></i>
+                              <p className="font-weight-bold m-0 text-dark">Building globally, living locally.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                </div>
+             </div>
           </div>
         </div>
         <div className="spacer" data-height="70"></div>

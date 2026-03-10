@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 /*=================================================================*/
 /*                     BOOTSTRAP ELEMENTS
 /*=================================================================*/
@@ -58,19 +60,21 @@
     border: 0;
     -webkit-box-shadow: none;
     box-shadow: none;
-    @extend .shadow-dark;
+    @include shadow-dark;
 }
 
 .form-control:focus {
-    @extend .shadow-dark;
+    @include shadow-dark;
     outline: 0;
 }
 
-.form-control::-webkit-input-placeholder { /* Edge */
+.form-control::-webkit-input-placeholder {
+    /* Edge */
     color: #AEACCA;
 }
 
-.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+.form-control:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
     color: #AEACCA;
 }
 
@@ -102,7 +106,8 @@
     border-radius: 20px;
 }
 
-.alert-dismissable .close, .alert-dismissible .close {
+.alert-dismissable .close,
+.alert-dismissible .close {
     position: relative;
     top: 0;
     right: 0;
@@ -117,16 +122,23 @@
     border-radius: 4px;
 }
 
-.pagination > li:first-child > a,.pagination > li:first-child > span {
+.pagination>li:first-child>a,
+.pagination>li:first-child>span {
     margin-left: 0;
     border-radius: 50%;
 }
 
-.pagination > li:last-child > a,.pagination > li:last-child > span {
+.pagination>li:last-child>a,
+.pagination>li:last-child>span {
     border-radius: 50%;
 }
 
-.pagination > .active > a,.pagination > .active > a:focus,.pagination > .active > a:hover,.pagination > .active > span,.pagination > .active > span:focus,.pagination > .active > span:hover {
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {
     z-index: 3;
     color: #fff;
     cursor: default;
@@ -134,7 +146,8 @@
     border-color: transparent;
 }
 
-.pagination > li > a,.pagination > li > span {
+.pagination>li>a,
+.pagination>li>span {
     position: relative;
     float: left;
     font-weight: 400;
@@ -152,7 +165,10 @@
     @include transition(.3s);
 }
 
-.pagination > li > a:focus,.pagination > li > a:hover,.pagination > li > span:focus,.pagination > li > span:hover {
+.pagination>li>a:focus,
+.pagination>li>a:hover,
+.pagination>li>span:focus,
+.pagination>li>span:hover {
     z-index: 2;
     color: #FFF;
     background-color: $colordefault;
@@ -173,6 +189,7 @@
     position: relative;
     background-color: inherit;
     width: 100%;
+
     &:last-of-type {
         margin-bottom: 0;
     }
@@ -235,10 +252,12 @@
         &:not(:last-child) {
             margin-right: 1.5rem;
         }
+
         a {
             font-size: 21px;
         }
     }
+
     &.light {
         li {
             a:hover {
@@ -294,33 +313,23 @@
 }
 
 .shadow-dark {
-    -webkit-box-shadow: 0px 5px 20px 0px rgba(69,67,96,0.1);
-    -moz-box-shadow: 0px 5px 20px 0px rgba(69,67,96,0.1);
-    box-shadow: 0px 5px 20px 0px rgba(69,67,96,0.1);
+    @include shadow-dark;
 }
 
 .shadow-light {
-    -webkit-box-shadow: 0px 5px 20px 0px rgba(255, 255, 255, 0.01);
-    -moz-box-shadow: 0px 5px 20px 0px rgba(255, 255, 255, 0.01);
-    box-shadow: 0px 5px 20px 0px rgba(255, 255, 255, 0.01);
+    @include shadow-light;
 }
 
 .shadow-blue {
-    -webkit-box-shadow: 0px 5px 20px 0px rgba(108,108,229,0.5);
-    -moz-box-shadow: 0px 5px 20px 0px rgba(108,108,229,0.5);
-    box-shadow: 0px 5px 20px 0px rgba(108,108,229,0.5);
+    @include shadow-blue;
 }
 
 .shadow-pink {
-    -webkit-box-shadow: 0px 5px 20px 0px rgba(249,123,139,0.5);
-    -moz-box-shadow: 0px 5px 20px 0px rgba(249,123,139,0.5);
-    box-shadow: 0px 5px 20px 0px rgba(249,123,139,0.5);
+    @include shadow-pink;
 }
 
 .shadow-yellow {
-    -webkit-box-shadow: 0px 5px 20px 0px rgba(249,215,76,0.5);
-    -moz-box-shadow: 0px 5px 20px 0px rgba(249,215,76,0.5);
-    box-shadow: 0px 5px 20px 0px rgba(249,215,76,0.5);
+    @include shadow-yellow;
 }
 
 .padding-30 {
@@ -344,8 +353,8 @@
 .triangle-top {
     &:before {
         content: '';
-        width: 0; 
-        height: 0; 
+        width: 0;
+        height: 0;
         border-left: 10px solid transparent;
         border-right: 10px solid transparent;
         border-bottom: 10px solid #FFF;
@@ -356,22 +365,30 @@
     }
 }
 
-.morphext > .animated {
+.morphext>.animated {
     display: inline-block;
 }
 
 .text-light {
-    h1, h2, h3, h4, h5, h6 {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         color: #FFF;
     }
 }
 
 .videoWrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
+    padding-bottom: 56.25%;
+    /* 16:9 */
     padding-top: 0;
     height: 0;
 }
+
 .videoWrapper iframe {
     position: absolute;
     top: 0;
@@ -382,43 +399,45 @@
 
 // ====== Magnific Popup ======
 .mfp-zoom-in {
-  
-  /* start state */
-  .mfp-with-anim {
-    opacity: 0;
-    transition: all 0.2s ease-in-out; 
-    transform: scale(0.8); 
-  }
-  
-  &.mfp-bg {
-    opacity: 0;
-	transition: all 0.3s ease-out;
-  }
-  
-  /* animate in */
-  &.mfp-ready {
+
+    /* start state */
     .mfp-with-anim {
-      opacity: 1;
-      transform: scale(1); 
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+        transform: scale(0.8);
     }
+
     &.mfp-bg {
-      opacity: 0.8;
+        opacity: 0;
+        transition: all 0.3s ease-out;
     }
-  }
-  
-  /* animate out */
-  &.mfp-removing {
-    
-    .mfp-with-anim {
-      transform: scale(0.8); 
-      opacity: 0;
+
+    /* animate in */
+    &.mfp-ready {
+        .mfp-with-anim {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        &.mfp-bg {
+            opacity: 0.8;
+        }
     }
-    &.mfp-bg {
-      opacity: 0;
+
+    /* animate out */
+    &.mfp-removing {
+
+        .mfp-with-anim {
+            transform: scale(0.8);
+            opacity: 0;
+        }
+
+        &.mfp-bg {
+            opacity: 0;
+        }
+
     }
-    
-  }
-  
+
 }
 
 
@@ -431,74 +450,77 @@
     max-width: 650px;
     margin: 40px auto;
     position: relative;
-  }
+}
 
 
-  /**
+/**
    * Fade-zoom animation for first dialog
    */
-  
-  /* start state */
-  .my-mfp-zoom-in .zoom-anim-dialog {
+
+/* start state */
+.my-mfp-zoom-in .zoom-anim-dialog {
     opacity: 0;
 
-    -webkit-transition: all 0.2s ease-in-out; 
-    -moz-transition: all 0.2s ease-in-out; 
-    -o-transition: all 0.2s ease-in-out; 
-    transition: all 0.2s ease-in-out; 
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
 
 
-    -webkit-transform: scale(0.8); 
-    -moz-transform: scale(0.8); 
-    -ms-transform: scale(0.8); 
-    -o-transform: scale(0.8); 
-    transform: scale(0.8); 
-  }
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    transform: scale(0.8);
+}
 
-  /* animate in */
-  .my-mfp-zoom-in.mfp-ready .zoom-anim-dialog {
+/* animate in */
+.my-mfp-zoom-in.mfp-ready .zoom-anim-dialog {
     opacity: 1;
 
-    -webkit-transform: scale(1); 
-    -moz-transform: scale(1); 
-    -ms-transform: scale(1); 
-    -o-transform: scale(1); 
-    transform: scale(1); 
-  }
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+}
 
-  /* animate out */
-  .my-mfp-zoom-in.mfp-removing .zoom-anim-dialog {
-    -webkit-transform: scale(0.8); 
-    -moz-transform: scale(0.8); 
-    -ms-transform: scale(0.8); 
-    -o-transform: scale(0.8); 
-    transform: scale(0.8); 
+/* animate out */
+.my-mfp-zoom-in.mfp-removing .zoom-anim-dialog {
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    transform: scale(0.8);
 
     opacity: 0;
-  }
+}
 
-  /* Dark overlay, start state */
-  .my-mfp-zoom-in.mfp-bg {
+/* Dark overlay, start state */
+.my-mfp-zoom-in.mfp-bg {
     opacity: 0;
-    -webkit-transition: opacity 0.3s ease-out; 
-    -moz-transition: opacity 0.3s ease-out; 
-    -o-transition: opacity 0.3s ease-out; 
+    -webkit-transition: opacity 0.3s ease-out;
+    -moz-transition: opacity 0.3s ease-out;
+    -o-transition: opacity 0.3s ease-out;
     transition: opacity 0.3s ease-out;
-  }
-  /* animate in */
-  .my-mfp-zoom-in.mfp-ready.mfp-bg {
-    opacity: 0.8;
-  }
-  /* animate out */
-  .my-mfp-zoom-in.mfp-removing.mfp-bg {
-    opacity: 0;
-  }
+}
 
-  .mfp-close {
-      font-size: 40px;
-      opacity: 1;
-      &:hover {
-          opacity: 0.75;
-      }
-  }
+/* animate in */
+.my-mfp-zoom-in.mfp-ready.mfp-bg {
+    opacity: 0.8;
+}
+
+/* animate out */
+.my-mfp-zoom-in.mfp-removing.mfp-bg {
+    opacity: 0;
+}
+
+.mfp-close {
+    font-size: 40px;
+    opacity: 1;
+
+    &:hover {
+        opacity: 0.75;
+    }
+}

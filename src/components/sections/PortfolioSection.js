@@ -3,131 +3,81 @@ import ScrollAnimation from "react-animate-on-scroll";
 import Pagetitle from "../elements/Pagetitle";
 import Portfolio from "../elements/Portfolio";
 
-const filters = [
-  {
-    id: 1,
-    text: "Everything",
-  },
-  {
-    id: 2,
-    text: "creative",
-  },
-  {
-    id: 3,
-    text: "art",
-  },
-  {
-    id: 4,
-    text: "design",
-  },
-  {
-    id: 5,
-    text: "branding",
-  },
-];
-
 const allData = [
   {
     id: 1,
-    title: "Project Managment Illustration",
-    category: "art",
-    image: "images/works/1.svg",
-    popupLink: ["images/works/1.svg"],
+    title: "CareerGym",
+    category: "R&D",
+    image: "images/works/careergym.png",
+    logo: "images/works/CareerGym-logo.png",
+    link: "https://careergym.app",
+    description: "Your personal career fitness trainer."
   },
   {
     id: 2,
-    title: "Guest App Walkthrough Screens",
-    category: "creative",
-    image: "images/works/2.svg",
-    popupLink: [
-      "images/works/2.svg",
-      "images/works/5.svg",
-      "images/works/6.svg",
-    ],
+    title: "GitKetchup",
+    category: "Beta",
+    image: "images/works/gitketchup.png",
+    logo: "images/works/Ketchup.logo.png",
+    link: "https://gitketchup.com",
+    description: "Turn git activity into cinematic stories."
   },
   {
     id: 3,
-    title: "Delivery App Wireframe",
-    category: "branding",
-    image: "images/works/3.svg",
-    popupLink: ["https://www.youtube.com/watch?v=qf9z4ulfmYw"],
+    title: "HeadsUp",
+    category: "R&D",
+    image: "images/works/headsup.png",
+    logo: "images/works/HeadsUp-logo.png",
+    link: "https://headsup.city",
+    description: "AR property intelligence for investors."
   },
   {
     id: 4,
-    title: "Onboarding Motivation",
-    category: "creative",
-    image: "images/works/4.svg",
-    popupLink: [
-      "https://www.youtube.com/watch?v=URVHRhBSjj8",
-      "https://www.youtube.com/watch?v=qf9z4ulfmYw",
-    ],
+    title: "PlayAction Studios",
+    category: "R&D",
+    image: "images/works/playaction.png",
+    logo: "images/works/Playaction-logo.png",
+    link: "https://playactionstudios.com",
+    description: "Film + interactive media experiments."
   },
   {
     id: 5,
-    title: "iMac Mockup Design",
-    category: "art",
-    image: "images/works/5.svg",
-    popupLink: ["images/works/5.svg"],
+    title: "Sink",
+    category: "Coming Soon",
+    image: "images/works/sink.png",
+    logo: "images/works/Sink-Logo.svg",
+    link: "https://sink.chat",
+    description: "Encrypted chat for the paranoid."
   },
   {
     id: 6,
-    title: "Game Store App Concept",
-    category: "design",
-    image: "images/works/6.svg",
-    link: "https://dribbble.com",
+    title: "VibeFeedback",
+    category: "Beta",
+    image: "images/works/vibefeedback.png",
+    logo: "images/works/VibeFeedback-logo.png",
+    link: "https://vibefeedback.app",
+    description: "Real-time feedback for events and teams."
   },
   {
     id: 7,
-    title: "Project Managment Illustration",
-    category: "art",
-    image: "images/works/3.svg",
-    link: "https://pinterest.com",
-  },
-  {
-    id: 8,
-    title: "Guest App Walkthrough Screens",
-    category: "design",
-    image: "images/works/1.svg",
-    popupLink: ["images/works/1.svg"],
-  },
-  {
-    id: 9,
-    title: "Delivery App Wireframe",
-    category: "branding",
-    image: "images/works/4.svg",
-    popupLink: ["images/works/4.svg"],
-  },
-  {
-    id: 10,
-    title: "Game Store App Concept",
-    category: "design",
-    image: "images/works/6.svg",
-    link: "https://dribbble.com",
-  },
-  {
-    id: 11,
-    title: "Project Managment Illustration",
-    category: "art",
-    image: "images/works/3.svg",
-    link: "https://pinterest.com",
-  },
-  {
-    id: 12,
-    title: "Guest App Walkthrough Screens",
-    category: "design",
-    image: "images/works/1.svg",
-    popupLink: ["images/works/1.svg"],
-  },
-  {
-    id: 13,
-    title: "Delivery App Wireframe",
-    category: "branding",
-    image: "images/works/4.svg",
-    popupLink: ["images/works/4.svg"],
-  },
+    title: "TravelDay",
+    category: "Beta",
+    image: "images/works/travelday.png",
+    logo: "images/works/Travelday-logo.png",
+    link: "https://travelday.world",
+    description: "Travel safety copilot."
+  }
 ];
 
-function Works() {
+const filters = [
+  { id: 1, text: "Everything" },
+  { id: 2, text: "Live" },
+  { id: 3, text: "Beta" },
+  { id: 4, text: "R&D" },
+  { id: 5, text: "Coming Soon" }
+];
+
+function PortfolioSection() {
   const [getAllItems] = useState(allData);
   const [dataVisibleCount, setDataVisibleCount] = useState(6);
   const [dataIncrement] = useState(3);
@@ -136,7 +86,7 @@ function Works() {
   const [noMorePost, setNoMorePost] = useState(false);
 
   useEffect(() => {
-    setActiveFilter(filters[0].text.toLowerCase());
+    setActiveFilter(filters[0].text);
     setVisibleItems(getAllItems.filter((item) => item.id <= 6));
   }, [getAllItems]);
 
@@ -144,12 +94,12 @@ function Works() {
     e.preventDefault();
     setActiveFilter(e.target.textContent.toLowerCase());
     let tempData;
-    if (e.target.textContent.toLowerCase() === filters[0].text.toLowerCase()) {
+    if (e.target.textContent === filters[0].text) {
       tempData = getAllItems.filter((data) => data.id <= dataVisibleCount);
     } else {
       tempData = getAllItems.filter(
         (data) =>
-          data.category === e.target.textContent.toLowerCase() &&
+          data.category === e.target.textContent &&
           data.id <= dataVisibleCount
       );
     }
@@ -177,9 +127,9 @@ function Works() {
   };
 
   return (
-    <section id="works">
+    <section id="portfolio">
       <div className="container">
-        <Pagetitle title="Recent Works" />
+        <Pagetitle title="Portfolio" />
         {/* Start Portfolio Filters */}
         <ScrollAnimation
           animateIn="fadeInUp"
@@ -235,4 +185,4 @@ function Works() {
   );
 }
 
-export default Works;
+export default PortfolioSection;
