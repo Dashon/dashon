@@ -1,4 +1,5 @@
 @use "mixins" as *;
+
 /*=================================================================*/
 /*                      BASE                              
 /*=================================================================*/
@@ -9,12 +10,12 @@
 
 html {
     margin: 0 !important;
-    overflow: auto !important;
+    overflow-x: hidden;
 }
 
 body {
     color: #5E5C7F;
-    background-color: #F9F9FF;
+    background-color: #F9F9FF; // Reverted to original light background
     font-family: $fontstack;
     font-size: 16px;
     line-height: 1.7;

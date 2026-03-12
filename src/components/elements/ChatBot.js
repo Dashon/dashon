@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import ReactMarkdown from "react-markdown";
 
 // ─── Rate-limit constants ─────────────────────────────────────────────────────
 const MAX_PER_MINUTE = 5;
-const MAX_PER_SESSION = 20;
+const MAX_PER_SESSION = 50;
 const RATE_WINDOW_MS = 60_000;
 
 
@@ -73,8 +74,34 @@ function ChatBot() {
     if (open) setTimeout(() => inputRef.current?.focus(), 150);
   }, [open]);
 
-  const sendMessage = useCallback(async () => {
-    const text = input.trim();
+  // Auto-resize textarea
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.style.height = "auto";
+      inputRef.current.style.height = inputRef.current.scrollHeight + "px";
+    }
+  }, [input]);
+
+  // Handle global event to open chatbot with specific query
+  useEffect(() => {
+    const handleOpenChat = (e) => {
+      const { query } = e.detail || {};
+      setOpen(true);
+      if (query) {
+        setInput(query);
+        // We delay slightly to ensure the panel is open before focusing/sending
+        setTimeout(() => {
+           // If we wanted to auto-send, we could call sendMessage() here
+           // but Nate's demo shows the text populated first.
+        }, 200);
+      }
+    };
+    window.addEventListener("open-chatbot", handleOpenChat);
+    return () => window.removeEventListener("open-chatbot", handleOpenChat);
+  }, []);
+
+  const sendMessage = useCallback(async (overrideInput) => {
+    const text = (overrideInput || input).trim();
     if (!text || loading) return;
 
     const rateCheck = checkRateLimit();
@@ -140,6 +167,10 @@ function ChatBot() {
     }
   }, [input, loading, messages]);
 
+  const onChipClick = (query) => {
+    sendMessage(query);
+  };
+
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
@@ -192,8 +223,10 @@ function ChatBot() {
           bottom: 92px;
           right: 28px;
           z-index: 9998;
-          width: 340px;
-          max-height: 500px;
+          width: 440px;
+          max-width: calc(100vw - 56px);
+          height: 500px;
+          max-height: calc(100vh - 120px);
           display: flex;
           flex-direction: column;
           border-radius: 16px;
@@ -266,6 +299,25 @@ function ChatBot() {
           white-space: pre-wrap;
           word-break: break-word;
         }
+        .chatbot-msg-bubble p:last-child {
+          margin-bottom: 0;
+        }
+        .chatbot-msg-bubble ul, .chatbot-msg-bubble ol {
+          margin-bottom: 10px;
+          padding-left: 20px;
+        }
+        .chatbot-msg-bubble li {
+          margin-bottom: 4px;
+        }
+        .chatbot-msg-bubble code {
+          background: rgba(0,0,0,0.05);
+          padding: 2px 4px;
+          border-radius: 4px;
+          font-family: monospace;
+        }
+        .chatbot-msg.user .chatbot-msg-bubble code {
+          background: rgba(255,255,255,0.2);
+        }
         .chatbot-msg.assistant .chatbot-msg-bubble {
           background: #fff;
           color: #333;
@@ -322,10 +374,10 @@ function ChatBot() {
           resize: none;
           border: 1px solid #ddd;
           border-radius: 10px;
-          padding: 8px 12px;
-          font-size: 0.82rem;
+          padding: 10px 14px;
+          font-size: 0.88rem;
           outline: none;
-          max-height: 80px;
+          max-height: 160px;
           line-height: 1.4;
           transition: border-color 0.15s;
           font-family: inherit;
@@ -354,6 +406,19 @@ function ChatBot() {
           padding: 0 14px 6px;
           background: #fff;
         }
+        .chatbot-chips {
+          display: flex;
+          gap: 8px;
+          padding: 8px 14px;
+          background: #f8f9fa;
+          overflow-x: auto;
+          border-top: 1px solid #eee;
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
+        }
+        .chatbot-chips::-webkit-scrollbar {
+          display: none; /* Chrome, Safari and Opera */
+        }
         @media (max-width: 480px) {
           .chatbot-panel { width: calc(100vw - 32px); right: 16px; bottom: 84px; }
           .chatbot-bubble { right: 16px; bottom: 20px; }
@@ -367,7 +432,13 @@ function ChatBot() {
         aria-label={open ? "Close chat" : "Open Dashon's assistant"}
         title={open ? "Close chat" : "Chat with Dashon's assistant"}
       >
-        {open ? "✕" : "💬"}
+        {open ? (
+          "✕"
+        ) : (
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+        )}
       </button>
 
       {/* ── Chat Panel ── */}
@@ -375,14 +446,26 @@ function ChatBot() {
         <div className="chatbot-panel" role="dialog" aria-label="Dashon's assistant">
           {/* Header */}
           <div className="chatbot-header">
-            <div className="chatbot-header-avatar">😉</div>
+            <div className="chatbot-header-avatar">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect width="16" height="12" x="4" y="8" rx="2" />
+                <path d="M12 8V4H8" />
+                <path d="M2 14h2" />
+                <path d="M20 14h2" />
+                <path d="M15 13v2" />
+                <path d="M9 13v2" />
+              </svg>
+            </div>
             <div className="chatbot-header-info">
               <h6>Dashon's Assistant</h6>
-              <small>Ask me about Dashon's work &amp; resume</small>
+              <small>Ask me about Dashon's work</small>
             </div>
             <div className="chatbot-header-actions">
               <button className="chatbot-header-btn" onClick={clearChat} title="Clear chat">
-                ↺
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" />
+                  <path d="M21 3v5h-5" />
+                </svg>
               </button>
               <button className="chatbot-header-btn" onClick={() => setOpen(false)} title="Close">
                 ✕
@@ -394,7 +477,13 @@ function ChatBot() {
           <div className="chatbot-messages" role="log" aria-live="polite">
             {messages.map((msg, i) => (
               <div key={i} className={`chatbot-msg ${msg.role}`}>
-                <div className="chatbot-msg-bubble">{msg.content}</div>
+                <div className="chatbot-msg-bubble">
+                  {msg.role === "assistant" ? (
+                    <ReactMarkdown>{msg.content}</ReactMarkdown>
+                  ) : (
+                    msg.content
+                  )}
+                </div>
               </div>
             ))}
             {loading && (
@@ -411,7 +500,19 @@ function ChatBot() {
           {rateLimitMsg && <div className="chatbot-rate-msg">{rateLimitMsg}</div>}
 
           {/* Counter */}
-          <div className="chatbot-counter">{remaining} messages remaining this session</div>
+
+          {/* Suggestion Chips */}
+          <div className="chatbot-chips">
+            <button className="chatbot-chip" onClick={() => onChipClick("I'd like you to assess my Job Description for fit. [Paste JD here]")} style={{ fontSize: "0.7rem", padding: "4px 10px", borderRadius: "20px", border: "1px solid #4A90E2", background: "#fff", color: "#4A90E2", whiteSpace: "nowrap", cursor: "pointer" }}>
+              📋 Assess my Job Description
+            </button>
+            <button className="chatbot-chip" onClick={() => onChipClick("Tell me your real story—the depth beyond the resume.")} style={{ fontSize: "0.7rem", padding: "4px 10px", borderRadius: "20px", border: "1px solid #4A90E2", background: "#fff", color: "#4A90E2", whiteSpace: "nowrap", cursor: "pointer" }}>
+              📖 Tell me your real story
+            </button>
+            <button className="chatbot-chip" onClick={() => onChipClick("I'd like to schedule a call with Dashon. What's the best way?")} style={{ fontSize: "0.7rem", padding: "4px 10px", borderRadius: "20px", border: "1px solid #FF5959", background: "#fff", color: "#FF5959", whiteSpace: "nowrap", cursor: "pointer" }}>
+              📅 Schedule a Call
+            </button>
+          </div>
 
           {/* Input */}
           <div className="chatbot-footer">
@@ -419,7 +520,7 @@ function ChatBot() {
               ref={inputRef}
               className="chatbot-input"
               rows={1}
-              placeholder="Ask me anything about Dashon…"
+              placeholder="Ask about my work or paste a JD…"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
@@ -428,7 +529,7 @@ function ChatBot() {
             />
             <button
               className="chatbot-send"
-              onClick={sendMessage}
+              onClick={() => sendMessage()}
               disabled={loading || !input.trim()}
               aria-label="Send message"
             >

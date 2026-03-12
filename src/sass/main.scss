@@ -139,6 +139,7 @@ section.home {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  pointer-events: none;
 
   .layer {
     position: absolute;

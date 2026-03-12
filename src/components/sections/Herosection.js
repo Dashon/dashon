@@ -34,12 +34,13 @@ function Herosection(props) {
             I'm a{" "}
             <TypeAnimation
               sequence={[
+                "n AgentMaxxer", 2000,
                 "Senior Software Engineer", 2000,
-                "Digital Nomad", 2000,
-                "Full Stack Developer", 2000,
-                "Travel Nerd", 2000,
+                "Fit Assessment Expert", 2000,
                 "Scuba Diver", 2000,
-                "AI Expert",2000,
+                "Digital Nomad", 2000,
+                "n AI Expert", 2000,
+                "Full Stack Developer", 2000,
                 "Dog Lover", 2000,
               ]}
               speed={50}
@@ -60,11 +61,25 @@ function Herosection(props) {
                 <i className="fab fa-github"></i>
               </a>
             </li>
+            <li className="list-inline-item">
+              <a href="https://cal.com/dashon-howard" target="_dashonExt" title="Schedule a call">
+                <svg
+                  width="21"
+                  height="21"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ verticalAlign: "middle", marginTop: "-6px" }}
+                >
+                  <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z" />
+                </svg>
+              </a>
+            </li>
           </ul>
 
-          <div className="mt-4">
+          <div className="mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <Link
-              className="btn btn-default"
+              className="btn btn-default mr-md-2 mb-2 mb-md-0"
               to="section-contact"
               spy={true}
               smooth={true}
@@ -73,6 +88,17 @@ function Herosection(props) {
             >
               Hire me
             </Link>
+            <button
+              className="btn btn-outline-pink mb-2 mb-md-0"
+              onClick={() => {
+                posthog.capture('assess_fit_hero_clicked');
+                window.dispatchEvent(new CustomEvent("open-chatbot", { 
+                  detail: { query: "I'd like to see if we're a good fit. I'll paste a Job Description for you to analyze against Dashon's background." } 
+                }));
+              }}
+            >
+              Assess Job Fit
+            </button>
           </div>
         </div>
 

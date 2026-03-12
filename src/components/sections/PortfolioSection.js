@@ -159,24 +159,46 @@ function PortfolioSection() {
         {/* Start Portfolio Items */}
         <div className="row portfolio-wrapper">
           {visibleItems.map((item) => (
-            <div className="col-md-4 col-sm-6 grid-item" key={item.id}>
+            <div className="col-md-4 col-sm-6 grid-item" key={item.id} style={{ display: "flex" }}>
               <Portfolio portfolio={item} />
             </div>
           ))}
         </div>
         {/* End Portfolio Items */}
 
-        <div className="load-more text-center mt-4">
+        <div className="load-more text-center mt-5">
           <button
             className="btn btn-default"
             onClick={handleLoadmore}
             disabled={noMorePost ? "disabled" : null}
+            style={{
+              padding: "12px 32px",
+              borderRadius: "30px",
+              backgroundColor: "#FF5959",
+              border: "none",
+              color: "white",
+              fontWeight: "700",
+              fontSize: "15px",
+              boxShadow: "0 6px 20px rgba(255, 89, 89, 0.3)",
+              transition: "all 0.3s ease",
+              letterSpacing: "0.5px"
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = "translateY(-3px)";
+              e.currentTarget.style.boxShadow = "0 10px 25px rgba(255, 89, 89, 0.4)";
+              e.currentTarget.style.backgroundColor = "#ff4545";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 6px 20px rgba(255, 89, 89, 0.3)";
+              e.currentTarget.style.backgroundColor = "#FF5959";
+            }}
           >
             {noMorePost ? (
               "No more items"
             ) : (
               <span>
-                <i className="fas fa-spinner"></i> See more at Semicolon-D.com
+                See more at Semicolon-D.com
               </span>
             )}
           </button>

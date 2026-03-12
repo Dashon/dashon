@@ -78,7 +78,7 @@ const counterData = [
   },
 ];
 
-function About() {
+function About(props) {
   const posthog = usePostHog();
 
   const viewPdfHandler = () => {
@@ -170,12 +170,90 @@ function About() {
                      </ul>
                   </div>
                   <div className="col-md-7">
-                     <div className="rounded overflow-hidden shadow-sm p-4 bg-light" style={{ border: "1px solid #eee" }}>
-                        <h5 className="font-weight-bold mb-3 text-dark">Core Skills</h5>
-                        <div className="d-flex flex-wrap gap-2">
-                          {["LLM Workflows","Agents","RAG / Retrieval","Evals","TypeScript","Node.js","React / Next.js",".NET / C#","PostgreSQL","AWS Lambda","API Gateway","SQS","Docker","Terraform","CI/CD","Fractional Lead","Product Architecture"].map((skill) => (
-                            <span key={skill} className="badge badge-pill" style={{ backgroundColor: "#6C6CE515", color: "#6C6CE5", border: "1px solid #6C6CE540", padding: "6px 12px", fontSize: "0.8rem", fontWeight: 600 }}>{skill}</span>
-                          ))}
+                     <div className="skills-gaps-card rounded overflow-hidden p-4" style={{ 
+                        background: props.light ? "rgba(255, 255, 255, 0.7)" : "rgba(255, 255, 255, 0.05)",
+                        backdropFilter: "blur(12px)",
+                        WebkitBackdropFilter: "blur(12px)",
+                        border: "1px solid rgba(255, 255, 255, 0.1)",
+                        boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                        position: "relative"
+                     }}>
+                        <div className="d-flex align-items-center mb-4">
+                           <div className="bg-primary rounded-circle mr-5 d-flex align-items-center justify-content-center" style={{ width: "32px", height: "32px", opacity: 0.8, marginRight: "5px" }}>
+                              <i className="fas fa-brain text-white small"></i>
+                           </div>
+                           <h5 className="font-weight-bold m-0" style={{ letterSpacing: "0.5px" }}>Skills & Gaps (AI-Ready)</h5>
+                        </div>
+
+                        <div className="row">
+                          <div className="col-sm-4 mb-4 mb-sm-0">
+                            <h6 className="small font-weight-bold text-success text-uppercase mb-3" style={{ opacity: 0.9 }}>Expertise</h6>
+                            <ul className="list-unstyled mb-0">
+                              {["TS/Node", "React/Next", "AI/RAG", "C#/.NET"].map(s => (
+                                <li key={s} className="mb-2 d-flex align-items-center small">
+                                  <i className="fas fa-check-circle mr-2 text-success" style={{ fontSize: "12px" }}></i>
+                                  <span style={{ fontWeight: 500, marginLeft: "2px" }}>{s}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div className="col-sm-4 mb-4 mb-sm-0">
+                            <h6 className="small font-weight-bold text-primary text-uppercase mb-3" style={{ opacity: 0.9 }}>Proficient</h6>
+                            <ul className="list-unstyled mb-0">
+                              {["Docker", "Terraform", "GraphQL", "AWS"].map(s => (
+                                <li key={s} className="mb-2 d-flex align-items-center small">
+                                  <i className="fas fa-arrow-circle-up mr-2 text-primary" style={{ fontSize: "12px" }}></i>
+                                  <span style={{ fontWeight: 500, marginLeft: "2px" }}>{s}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div className="col-sm-4">
+                            <h6 className="small font-weight-bold text-warning text-uppercase mb-3" style={{ opacity: 0.9 }}>Transparent Gaps</h6>
+                            <ul className="list-unstyled mb-0">
+                              {["UX Design", "Native App", "Growth"].map(s => (
+                                <li key={s} className="mb-2 d-flex align-items-center small">
+                                  <i className="fas fa-minus-circle mr-2 text-warning" style={{ fontSize: "12px" }}></i>
+                                  <span style={{ fontWeight: 500, marginLeft: "2px" }}>{s}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+
+                        <div className="mt-4 pt-4 border-top text-center" style={{ borderColor: "rgba(0,0,0,0.05)" }}>
+                          <div className="p-3 rounded mb-3" style={{ background: "rgba(108, 108, 229, 0.05)", border: "1px dashed rgba(108, 108, 229, 0.2)" }}>
+                            <p className="small mb-0 text-muted">
+                              <strong className="text-dark">Interactive Fit Assessment</strong><br/>
+                              Paste your JD into my AI chat to see an honest assessment of how my skills map to your needs.
+                            </p>
+                          </div>
+                          <button 
+                            className="btn btn-default mt-2"
+                            style={{ 
+                              backgroundColor: "#FF5959",
+                              border: "none",
+                              color: "white",
+                              padding: "10px 24px",
+                              borderRadius: "30px",
+                              fontWeight: "600",
+                              boxShadow: "0 5px 15px rgba(255, 89, 89, 0.3)",
+                              transition: "all 0.3s ease"
+                            }}
+                            onMouseOver={(e) => {
+                               e.currentTarget.style.transform = "translateY(-2px)";
+                               e.currentTarget.style.boxShadow = "0 8px 20px rgba(255, 89, 89, 0.4)";
+                               e.currentTarget.style.backgroundColor = "#ff4545";
+                            }}
+                            onMouseOut={(e) => {
+                               e.currentTarget.style.transform = "translateY(0)";
+                               e.currentTarget.style.boxShadow = "0 5px 15px rgba(255, 89, 89, 0.3)";
+                               e.currentTarget.style.backgroundColor = "#FF5959";
+                            }}
+                            onClick={() => window.dispatchEvent(new CustomEvent("open-chatbot", { detail: { query: "I'd like an honest assessment of a Job Description. [Paste JD here]" } }))}
+                          >
+                            <i className="fas fa-robot mr-2"></i> Assess Job Fit
+                          </button>
                         </div>
                      </div>
                   </div>

@@ -15,43 +15,173 @@ function Portfolio({ portfolio }) {
 
   return (
     <>
-      <a
-        href={link ? link : "!#"}
-        target={link ? "_blank" : "_self"}
-        rel="noopener noreferrer"
-        className="work-image"
-        onClick={handleLightbox}
-      >
-        <div className="portfolio-item rounded shadow-dark bg-white overflow-hidden">
-          <div className="thumb relative overflow-hidden h-48">
-            <img src={image} alt={title} className="w-100 h-100 object-fit-cover transition-all" />
-            <div className="mask"></div>
+      <div className="portfolio-card-container" style={{ height: "100%", width: "100%" }}>
+        <a
+          href={link ? link : "!#"}
+          target={link ? "_blank" : "_self"}
+          rel="noopener noreferrer"
+          className="portfolio-card-link"
+          style={{ 
+            display: "flex", 
+            flexDirection: "column",
+            height: "100%", 
+            width: "100%",
+            textDecoration: "none",
+            borderRadius: "16px",
+            overflow: "hidden",
+            backgroundColor: "#FFF",
+            boxShadow: "0px 5px 20px 0px rgba(69, 67, 96, 0.1)",
+            transition: "all 0.3s ease-in-out"
+          }}
+          onClick={handleLightbox}
+        >
+          {/* Top: Image Section with Overlays */}
+          <div className="portfolio-image-wrap" style={{ 
+            position: "relative", 
+            width: "100%",
+            paddingTop: "65%",
+            overflow: "hidden",
+            backgroundColor: "#F9F9FF"
+          }}>
+            <img 
+              src={image} 
+              alt={title} 
+              style={{ 
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%", 
+                height: "100%", 
+                objectFit: "cover",
+                transition: "transform 0.4s ease"
+              }} 
+              className="portfolio-img"
+            />
+            
+            {/* Category Tag Overlay (Top Right) */}
+            <div className="category-tag" style={{ 
+              position: "absolute",
+              top: "12px",
+              right: "12px",
+              backgroundColor: "#FF4C60", 
+              color: "white", 
+              padding: "3px 10px", 
+              borderRadius: "0 0 0 10px", 
+              fontSize: "10px", 
+              fontWeight: "700", 
+              textTransform: "uppercase",
+              zIndex: 2
+            }}>
+              {category}
+            </div>
+
+            {/* Logo Icon Overlay (Bottom Left) */}
             {logo && (
-              <div className="project-logo-overlay" style={{ position: "absolute", bottom: "15px", right: "15px", width: "40px", height: "40px", backgroundColor: "white", borderRadius: "8px", padding: "5px", boxShadow: "0 2px 10px rgba(0,0,0,0.1)" }}>
+              <div className="project-logo-overlay" style={{ 
+                position: "absolute",
+                bottom: "12px",
+                left: "12px",
+                width: "40px", 
+                height: "40px", 
+                borderRadius: title.toLowerCase() === "sink" ? "22%" : "8px", 
+                backgroundColor: "rgba(255,255,255,0.8)",
+                backdropFilter: "blur(5px)",
+                padding: "6px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                border: "1px solid rgba(0,0,0,0.05)",
+                zIndex: 2
+              }}>
                 <img src={logo} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
               </div>
             )}
-            <div className="category-tag" style={{ position: "absolute", top: "15px", left: "15px", backgroundColor: "rgba(108, 108, 229, 0.9)", color: "white", padding: "2px 10px", borderRadius: "20px", fontSize: "12px", fontWeight: "bold", textTransform: "uppercase" }}>
-              {category}
+          </div>
+
+          {/* Bottom: Details Section */}
+          <div className="portfolio-details" style={{
+            padding: "20px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            textAlign: "center",
+            flexGrow: 1
+          }}>
+            <h4 className="portfolio-title" style={{ 
+              color: "#454360", 
+              margin: "0 0 8px 0", 
+              fontSize: "18px", 
+              fontWeight: "700"
+            }}>
+              {title}
+            </h4>
+            
+            {description && (
+              <p className="portfolio-description" style={{ 
+                color: "#5E5C7F", 
+                fontSize: "14px", 
+                margin: "0 0 15px 0", 
+                lineHeight: "1.6"
+              }}>
+                {description}
+              </p>
+            )}
+
+            <div style={{ marginTop: "auto" }}>
+              <button 
+                className="btn-ai-story" 
+                style={{ 
+                  padding: "6px 16px", 
+                  fontSize: "12px", 
+                  borderRadius: "20px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  backgroundColor: "#FF4C60",
+                  border: "none",
+                  color: "white",
+                  fontWeight: "600",
+                  boxShadow: "0px 5px 20px 0px rgba(255, 76, 96, 0.3)",
+                  cursor: "pointer",
+                  transition: "all 0.3s ease"
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  window.dispatchEvent(new CustomEvent("open-chatbot", { 
+                    detail: { query: `Tell me the real story of the ${title} project—the stuff that doesn't fit in a bullet point.` } 
+                  }));
+                }}
+              >
+                <i className="fas fa-robot"></i> View AI Story
+              </button>
             </div>
           </div>
-          <div className="details padding-20">
-            <h4 className="title m-0 mb-2 font-weight-bold">{title}</h4>
-            {description && <p className="text-muted small m-0">{description}</p>}
-          </div>
-        </div>
-      </a>
+        </a>
+      </div>
+
       <style dangerouslySetInnerHTML={{ __html: `
-        .portfolio-item:hover .thumb img {
+        .portfolio-card-link:hover .portfolio-img {
           transform: scale(1.1);
         }
-        .portfolio-item {
-          transition: transform 0.3s ease;
-        }
-        .portfolio-item:hover {
+        .portfolio-card-link:hover {
           transform: translateY(-5px);
+          box-shadow: 0px 10px 25px 0px rgba(69, 67, 96, 0.15) !important;
+        }
+        .btn-ai-story:hover {
+          background-color: #ff3e3e !important;
+          transform: translateY(-2px);
+          box-shadow: 0px 8px 25px 0px rgba(255, 76, 96, 0.4) !important;
         }
       `}} />
+
+      {open && (
+        <Lightbox
+          open={open}
+          close={() => setOpen(false)}
+          slides={[{ src: image }]}
+        />
+      )}
     </>
   );
 }
