@@ -97,7 +97,8 @@ function ChatBot() {
     recordMessage(rateCheck.recent, rateCheck.data);
 
     try {
-      const response = await fetch("/api/chat", {
+      // Pointing to the NEW custom backend on TravelDay.world
+      const response = await fetch("https://travelday.world/api/portfolio-chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
