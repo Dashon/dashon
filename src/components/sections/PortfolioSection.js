@@ -107,23 +107,24 @@ function PortfolioSection() {
   };
 
   const handleLoadmore = (e) => {
+    window.location.href = "https://semicolon-d.com";
     e.preventDefault();
-    let tempCount = dataVisibleCount + dataIncrement;
-    if (dataVisibleCount > getAllItems.length) {
-      setNoMorePost(true);
-    } else {
-      setDataVisibleCount(tempCount);
-      if (activeFilter === filters[0].text.toLowerCase()) {
-        console.log("they are same");
-        setVisibleItems(getAllItems.filter((data) => data.id <= tempCount));
-      } else {
-        setVisibleItems(
-          getAllItems.filter(
-            (data) => data.category === activeFilter && data.id <= tempCount
-          )
-        );
-      }
-    }
+    // let tempCount = dataVisibleCount + dataIncrement;
+    // if (dataVisibleCount > getAllItems.length) {
+    //   setNoMorePost(true);
+    // } else {
+    //   setDataVisibleCount(tempCount);
+    //   if (activeFilter === filters[0].text.toLowerCase()) {
+    //     console.log("they are same");
+    //     setVisibleItems(getAllItems.filter((data) => data.id <= tempCount));
+    //   } else {
+    //     setVisibleItems(
+    //       getAllItems.filter(
+    //         (data) => data.category === activeFilter && data.id <= tempCount
+    //       )
+    //     );
+    //   }
+    // }
   };
 
   return (
@@ -175,7 +176,7 @@ function PortfolioSection() {
               "No more items"
             ) : (
               <span>
-                <i className="fas fa-spinner"></i> Load more
+                <i className="fas fa-spinner"></i> See more at Semicolon-D.com
               </span>
             )}
           </button>

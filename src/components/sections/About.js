@@ -10,39 +10,41 @@ const aboutContent = {
   name: "Dashon",
   avatarImage: "/images/dashon.png",
   content:
-    `Hi! My name is Dashon Howard. I am a senior engineer and Digital Nomad who builds Desktop, Mobile and Web applications. ` +
-    `During my 14+ years of experience as a full stack developer, I have acquired the skills and knowledge necessary to make your project a success.`,
+    `Hi, I'm Dashon Howard — Founder & Principal Engineer at Semicolon-D, based in Chicago. ` +
+    `With 15+ years building web, mobile, and cloud systems across startups, healthcare, blockchain, and applied AI, ` +
+    `I help teams ship LLM-enabled features, retrieval systems, integrations, and modern product infrastructure fast — ` +
+    `while keeping delivery grounded in reliability, maintainability, and real-world constraints.`,
 };
 
 const progressData = [
   {
     id: 1,
-    title: ".NET",
-    percantage: 90,
+    title: "TypeScript / Node.js",
+    percantage: 95,
     progressColor: "#FFD15C",
   },
   {
     id: 2,
-    title: "NodeJS",
-    percantage: 85,
+    title: "React / Next.js",
+    percantage: 92,
     progressColor: "#FF4C60",
   },
   {
     id: 3,
-    title: "PHP",
-    percantage: 80,
-    progressColor: "#3A6CE9",
+    title: ".NET / C#",
+    percantage: 90,
+    progressColor: "#6C6CE5",
   },
   {
     id: 4,
-    title: "ReactJS",
-    percantage: 90,
-    progressColor: "#7C6C45",
+    title: "LLM / RAG / Agents",
+    percantage: 88,
+    progressColor: "#F9D74C",
   },
   {
     id: 5,
-    title: "Blockchain(MetaMask)",
-    percantage: 50,
+    title: "AWS / Serverless / Docker",
+    percantage: 85,
     progressColor: "#9C2CE5",
   },
 ];
@@ -114,7 +116,7 @@ function About() {
                   <div className="mt-3">
                     <a
                       action="view_file"
-                      href="/Resume-Dashon-Howard-2024.pdf"
+                      href="/Dashon-Howard-Resume.pdf"
                       onClick={viewPdfHandler}
                       target="__dashonExt"
                       className="btn btn-default"
@@ -125,7 +127,7 @@ function About() {
                   <div className="mt-3">
                     <a
                       eventLabel="download_resume"
-                      href="/Resume-Dashon-Howard-2024.pdf"
+                      href="/Dashon-Howard-Resume.pdf"
                       onClick={downloadPdfHandler}
                       download
                       className="btn btn-default"
@@ -158,23 +160,22 @@ function About() {
           <div className="col-md-12">
              <div className="rounded bg-white shadow-dark padding-30">
                 <div className="row align-items-center">
-                  <div className="col-md-4">
-                     <h3 className="mb-3">Digital Nomad</h3>
-                     <p className="text-muted">Currently traveling the world while building top-tier software. Embracing the freedom of remote work and the inspiration of new cultures.</p>
+                  <div className="col-md-5">
+                     <h3 className="mb-3">Founder &amp; Principal Engineer</h3>
+                     <p className="text-muted">Running Semicolon-D from Chicago — focused on rapid build sprints, fractional lead engineering, and rescue/scale work for teams that need senior technical execution without heavy overhead.</p>
                      <ul className="list-unstyled mt-3">
-                        <li><i className="fas fa-map-marker-alt mr-2 text-primary"></i> Current Location: <strong>Tokyo, Japan</strong></li>
-                        <li><i className="fas fa-plane-departure mr-2 text-primary"></i> Next Stop: <strong>Seoul, South Korea</strong></li>
-                        <li><i className="fas fa-laptop-code mr-2 text-primary"></i> Working from: <strong>Anywhere with Coffee</strong></li>
+                        <li><i className="fas fa-map-marker-alt mr-2 text-primary"></i> Based in: <strong>Chicago, IL</strong></li>
+                        <li><i className="fas fa-robot mr-2 text-primary"></i> Focus: <strong>LLM Workflows, Agents &amp; RAG</strong></li>
+                        <li><i className="fas fa-rocket mr-2 text-primary"></i> Building: <strong>TravelDay.world &amp; PlayActionStudios.com</strong></li>
                      </ul>
                   </div>
-                  <div className="col-md-8">
-                     <div className="nomad-map-container rounded overflow-hidden shadow-sm" style={{ border: "1px solid #eee", height: "250px", position: "relative" }}>
-                        <img src="/images/map-light.png" alt="Travel Map" style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.6 }} />
-                        <div className="map-overlay d-flex align-items-center justify-content-center" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "rgba(108, 108, 229, 0.05)" }}>
-                           <div className="text-center p-4 bg-white rounded shadow-lg border border-primary">
-                              <i className="fas fa-globe-americas fa-3x text-primary mb-2"></i>
-                              <p className="font-weight-bold m-0 text-dark">Building globally, living locally.</p>
-                           </div>
+                  <div className="col-md-7">
+                     <div className="rounded overflow-hidden shadow-sm p-4 bg-light" style={{ border: "1px solid #eee" }}>
+                        <h5 className="font-weight-bold mb-3 text-dark">Core Skills</h5>
+                        <div className="d-flex flex-wrap gap-2">
+                          {["LLM Workflows","Agents","RAG / Retrieval","Evals","TypeScript","Node.js","React / Next.js",".NET / C#","PostgreSQL","AWS Lambda","API Gateway","SQS","Docker","Terraform","CI/CD","Fractional Lead","Product Architecture"].map((skill) => (
+                            <span key={skill} className="badge badge-pill" style={{ backgroundColor: "#6C6CE515", color: "#6C6CE5", border: "1px solid #6C6CE540", padding: "6px 12px", fontSize: "0.8rem", fontWeight: 600 }}>{skill}</span>
+                          ))}
                         </div>
                      </div>
                   </div>

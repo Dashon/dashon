@@ -7,69 +7,55 @@ import { usePostHog } from 'posthog-js/react';
 const experienceData1 = [
   {
     id: 1,
-    title: "ZeNFT Inc.",
-    years: "January 2022 - Present",
+    title: "Founder & Principal Engineer — Semicolon-D",
+    years: "Aug 2024 - Present",
     content:
-      "Managed a team of engineers while overhauling the product development workflow implementing advanced agile methodologies and optimizing system architecture which doubled productivity. Collaborated with cross-functional teams to build and design advanced blockchain products and services to meet customer needs while bringing technical expertise to the table. Built and deployed a secure NFT Marketplace using the Seaport protocol saving over 80% in blockchain gas cost.",
+      "Building and shipping production software for client work and internal products across AI workflows, full-stack web systems, and cloud infrastructure. Leading architecture and hands-on execution across LLM-enabled features including agents, retrieval systems, tool-use, and evaluation patterns. Current product portfolio includes TravelDay.world and PlayActionStudios.com.",
   },
   {
     id: 2,
-    title: "Golf Coast Solutions (Contract)",
-    years: "May 2021 - Present",
+    title: "Senior Lead Software Engineer — Confidential AI Startup (Contract)",
+    years: "Aug 2024 - Aug 2025",
     content:
-      "Responsible for the full-stack development of various applications using .NET, NodeJS and ReactJS.",
+      "Built production LLM workflows including agents, retrieval pipelines, evaluation harnesses, and vendor integrations. Improved answer quality and reduced inference cost through prompt and tooling optimization. Shipped AI features designed for real-world production use in a fast-moving startup environment.",
   },
   {
     id: 3,
-    title: "Kaden Health (Contract)",
-    years: "Feb 2017 - May 2021",
+    title: "Lead Software Engineer — zeNFT, Inc.",
+    years: "Jan 2022 - Aug 2024",
     content:
-      "Assisted in the completion of a Video Conferencing app for mental health patients. The application used Laravel(PHP), ReactJS, MongoDB, and OpenVidu API. As well as speech analysis and machine learning techniques to assist the therapist by identifying important moments of the session.",
+      "Architected and shipped a secure NFT marketplace; integrated Seaport and optimized contract interactions to cut on-chain costs by 80%+. Unified data access with GraphQL across MongoDB, PostgreSQL, and SQL Server. Hardened CI/CD using Docker and AWS services including CodePipeline, Lambda, and API Gateway.",
   },
   {
     id: 4,
-    title: "ChopDawg (Contract)",
-    years: "May 2020 - Jan 2021",
+    title: "Senior Software Engineer — Independent Consultant (Contract)",
+    years: "Apr 2019 - Jan 2022",
     content:
-      "Worked with a team of contractors on various projects, primarily using NodeJS, Laravel, ReactJS, and SQL. Led the development of a blockchain application that utilized Solidity contracts, web3JS, and Metamask interfacing with smart home devices.",
-  },
-  {
-    id: 5,
-    title: "Harris Fitness (Contract)",
-    years: "Oct 2019 - May 2020",
-    content:
-      "Worked with a great team of professionals to deliver a solution for workplace safety. The product utilizes wearable technology to precisely identify task-based risk for cumulative trauma (overuse injuries) through characterization of muscle demand physiology.",
+      "Delivered 5+ mobile and web applications as a full-stack engineer using React Native, C#/.NET, Node.js/Express, and SQL. Integrated AWS services including Rekognition and Transcribe, plus wearable-device workflows for workplace safety analytics. Adopted serverless backends using Lambda and API Gateway.",
   },
 ];
 
 const experienceData2 = [
   {
     id: 1,
-    title: "Lextech Global Services (Contract)",
-    years: "May 2019 - Sep 2019",
+    title: "Senior Developer — MERGE (Merge Design & Interactive)",
+    years: "May 2017 - Apr 2019",
     content:
-      "Responsible for the support and development of a PHP Laravel single-page web application. While I was primarily responsible for backend development, I also assisted in frontend enhancements and some Mobile support.",
+      "Built modular marketing sites and APIs using Handlebars, React, SQL, WordPress, Kentico, Node.js, and ASP.NET. Improved initial render performance by approximately 45% through SEO, caching, CSS/JS hygiene, and front-end optimization.",
   },
   {
     id: 2,
-    title: "Merge Design & Interactive",
-    years: "May 2017 - Apr 2019",
+    title: "Senior Software Engineer — Orthogonal",
+    years: "Nov 2013 - May 2017",
     content:
-      "Assisted in the development of multiple brochure websites built using modular architecture using various content management systems. Using HandlebarsJS, ReactJS, SQL, Wordpress, Kentico CMS, NodeJS and .NET.",
+      "Developed medical software applications across .NET, Node.js, PHP, Ruby, Swift, Java, SQL, React, and Angular. Built Bluetooth LE mobile applications that captured and displayed data from medical devices. Improved web application latency by approximately 50% through performance-focused backend and front-end work.",
   },
   {
     id: 3,
-    title: "Orthogonal",
-    years: "Nov 2013 - May 2017",
+    title: "Software Developer & Trainer — Virtual Officeware",
+    years: "Oct 2007 - Nov 2013",
     content:
-      "Worked with a great team of medical software professionals, building exciting applications for industry leaders using an array of languages, including .NET, NodeJS, PHP, Ruby, Swift, Java, SQL, ReactJS and AngularJS. Assisted in the development of multiple mobile applications that capture and display data from medical devices over Bluetooth LE.",
-  },
-  {
-    id: 4,
-    title: "Virtual OfficeWare Healthcare Solutions",
-    years: "Oct 2007 - Nov 2013 ",
-    content:
-      "Introduced a C# ASP.NET MVC web application that runs automatic compatibility tests on Crystal Reports against multiple versions of Centricity EMR. Introduced an ASP.NET MVC web application that uses C# & VB to convert medical intake forms into HTML & CSS. Conducted monthly 3-Day end-user training classes with healthcare professionals.",
+      "Built an ASP.NET MVC application for automated compatibility testing on Crystal Reports across multiple Centricity EMR versions. Developed a system that converted medical intake forms into HTML and CSS. Helped reduce support load by approximately 45% through automation and better internal tools. Delivered recurring training sessions for healthcare professionals.",
   },
 ];
 
@@ -123,7 +109,7 @@ function Experiences() {
                 <a
                   style={{ marginRight: 10 }}
                   eventLabel="download_resume"
-                  href="/Resume-Dashon-Howard-2024.pdf"
+                  href="/Dashon-Howard-Resume.pdf"
                   onClick={downloadPdfHandler}
                   download
                   className="btn btn-default"
@@ -131,7 +117,7 @@ function Experiences() {
                   Download CV
                 </a>
                 <a
-                  href="/Resume-Dashon-Howard-2024.pdf"
+                  href="/Dashon-Howard-Resume.pdf"
                   onClick={viewPdfHandler}
                   target="__dashonExt"
                   className="btn btn-default"

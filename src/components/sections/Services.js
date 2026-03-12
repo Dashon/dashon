@@ -7,27 +7,27 @@ const servicesData = [
   {
     id: 1,
     icon: "images/service-2.svg",
-    title: "Full Stack Web Development",
+    title: "LLM & AI Engineering",
     content:
-      "I am a software engineer with experience in Desktop, Mobile and Web applications. I have over 14 years of experience building with numerous versions of the .Net Framework, including 5 years with NodeJS and 6 years with PHP. In addition, I have many years of experience building with prominent front-end languages and CMS frameworks (HTML, CSS, and JS).",
+      "I design and ship production LLM workflows including agents, RAG/retrieval pipelines, tool-use patterns, evaluation harnesses, and vendor integrations. I help teams move fast on AI features without sacrificing reliability or maintainability.",
     color: "#6C6CE5",
     contentColor: "light",
   },
   {
     id: 2,
     icon: "images/cloud.png",
-    title: "Healthcare IT",
+    title: "Full-Stack Product Development",
     content:
-      "I have 11 years experience working with EHR systems, medical devices using languages such as SMART on FHIR and HL7.",
+      "End-to-end product engineering across TypeScript/Node, React/Next.js, .NET/C#, PostgreSQL, and AWS. I build and ship complete systems — APIs, frontends, cloud infrastructure, and CI/CD — with a focus on rapid iteration and production-grade quality.",
     color: "#F9D74C",
     contentColor: "dark",
   },
   {
     id: 3,
-    icon: "images/metamask.svg",
-    title: "Blockchain Development",
+    icon: "images/service-2.svg",
+    title: "Fractional Lead Engineering",
     content:
-      "Collaborated with colleagues from other departments and participated in the creation and testing of new decentralized applications using Web3 and MetaMask",
+      "Senior technical execution without the overhead. I embed as a fractional lead to drive architecture decisions, unblock teams, rescue stalled projects, and scale delivery — from early-stage startups to established product orgs.",
     color: "#F97B8B",
     contentColor: "light",
   },

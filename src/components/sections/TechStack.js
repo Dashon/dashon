@@ -2,14 +2,14 @@ import React from "react";
 import Pagetitle from "../elements/Pagetitle";
 
 const techStack = [
-  { name: ".NET", icon: "fab fa-microsoft", color: "#512bd4" },
+  { name: "TypeScript", icon: "fab fa-js", color: "#3178c6" },
   { name: "Node.js", icon: "fab fa-node-js", color: "#339933" },
-  { name: "React", icon: "fab fa-react", color: "#61dafb" },
-  { name: "JavaScript", icon: "fab fa-js", color: "#f7df1e" },
-  { name: "Python", icon: "fab fa-python", color: "#3776ab" },
+  { name: "React / Next.js", icon: "fab fa-react", color: "#61dafb" },
+  { name: ".NET / C#", icon: "fab fa-microsoft", color: "#512bd4" },
+  { name: "PostgreSQL", icon: "fas fa-database", color: "#336791" },
   { name: "AWS", icon: "fab fa-aws", color: "#ff9900" },
   { name: "Docker", icon: "fab fa-docker", color: "#2496ed" },
-  { name: "Ethereum", icon: "fab fa-ethereum", color: "#3c3c3d" }
+  { name: "Terraform", icon: "fas fa-layer-group", color: "#7b42bc" }
 ];
 
 function TechStack() {
