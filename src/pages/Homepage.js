@@ -13,6 +13,7 @@ import Services from "../components/sections/Services";
 import Testimonials from "../components/sections/Testimonials";
 import PortfolioSection from "../components/sections/PortfolioSection";
 import TechStack from "../components/sections/TechStack";
+import ChatBot from "../components/elements/ChatBot";
 
 function Homepage() {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -32,7 +33,7 @@ function Homepage() {
     <>
       <Header
         light={lightTheme}
-        logoSource="/images/logo.png"
+        logoSource="/images/logo_v2.png"
         toggleMenu={toggleMenu}
         headerToggler={headerToggler}
       />
@@ -62,6 +63,7 @@ function Homepage() {
         </Element> 
         <div className="spacer" data-height="96"></div>
       </main>
+      <ChatBot />
     </>
   );
 }

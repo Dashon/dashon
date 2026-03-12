@@ -39,8 +39,7 @@ function Herosection(props) {
                 "Full Stack Developer", 2000,
                 "Travel Nerd", 2000,
                 "Scuba Diver", 2000,
-                "BlockChain Developer", 2000,
-                "Crypto Hunter", 2000,
+                "AI Expert",2000,
                 "Dog Lover", 2000,
               ]}
               speed={50}
