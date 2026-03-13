@@ -27,9 +27,11 @@ function Herosection(props) {
     >
       <div className="container">
         <div className="intro">
-          <img src="images/dashon.png" alt="Dashon" className="mb-4 logo" />
+          <img src="images/dashon.png" alt="Dashon Howard - Senior Software Engineer" className="mb-4 logo" />
 
-          <h1 className="mb-2 mt-0">Dashon Howard</h1>
+          <header>
+            <h1 className="mb-2 mt-0">Dashon Howard</h1>
+          </header>
           <p>
             I'm a{" "}
             <TypeAnimation

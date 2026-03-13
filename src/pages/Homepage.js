@@ -29,8 +29,38 @@ function Homepage() {
     }
   });
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://dashon.co/#person",
+        "name": "Dashon Howard",
+        "jobTitle": "Senior Software Engineer",
+        "url": "https://dashon.co/",
+        "image": "https://dashon.co/images/dashon.jpg",
+        "sameAs": [
+          "https://github.com/dashon",
+          "https://linkedin.com/in/dashonhoward"
+        ],
+        "description": "Senior Software Engineer with 14+ years of experience specializing in full-stack development, mobile apps, and scalable web solutions."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://dashon.co/#website",
+        "url": "https://dashon.co/",
+        "name": "Dashon Howard | Senior Software Engineer",
+        "publisher": { "@id": "https://dashon.co/#person" },
+        "description": "Portfolio of Dashon Howard, a Senior Software Engineer."
+      }
+    ]
+  };
+
   return (
     <>
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
       <Header
         light={lightTheme}
         logoSource="/images/logo_v2.png"

@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 import Logo from "../elements/Logo";
 
 function Header({ light, logoSource, toggleMenu, headerToggler }) {
@@ -25,6 +26,9 @@ function Header({ light, logoSource, toggleMenu, headerToggler }) {
     }
     return classes;
   };
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
   return (
     <>
       <header className={handleMobileClasses()}>
@@ -41,19 +45,15 @@ function Header({ light, logoSource, toggleMenu, headerToggler }) {
         <Logo logoSource={logoSource} />
         <nav>
           <ul className="vertical-menu scrollspy">
+            {!isHomePage && (
+              <li>
+                <RouterLink to="/">
+                  <i className="icon-home"></i>Home
+                </RouterLink>
+              </li>
+            )}
             <li>
-              <Link
-                activeClass="active"
-                to="section-home"
-                spy={true}
-                smooth={true}
-                duration={500}
-              >
-                <i className="icon-home"></i>Home
-              </Link>
-            </li>
-            <li>
-              <Link
+              <ScrollLink
                 activeClass="active"
                 to="section-about"
                 spy={true}
@@ -61,10 +61,10 @@ function Header({ light, logoSource, toggleMenu, headerToggler }) {
                 duration={500}
               >
                 <i className="icon-user-following"></i>About
-              </Link>
+              </ScrollLink>
             </li>
             <li>
-              <Link
+              <ScrollLink
                 activeClass="active"
                 to="section-services"
                 spy={true}
@@ -72,10 +72,10 @@ function Header({ light, logoSource, toggleMenu, headerToggler }) {
                 duration={500}
               >
                 <i className="icon-briefcase"></i>Services
-              </Link>
+              </ScrollLink>
             </li>
             <li>
-              <Link
+              <ScrollLink
                 activeClass="active"
                 to="section-experiences"
                 spy={true}
@@ -83,11 +83,11 @@ function Header({ light, logoSource, toggleMenu, headerToggler }) {
                 duration={500}
               >
                 <i className="icon-graduation"></i>Experience
-              </Link>
+              </ScrollLink>
             </li>
 
             <li>
-              <Link
+              <ScrollLink
                 activeClass="active"
                 to="section-portfolio"
                 spy={true}
@@ -95,10 +95,10 @@ function Header({ light, logoSource, toggleMenu, headerToggler }) {
                 duration={500}
               >
                 <i className="icon-layers"></i>Portfolio
-              </Link>
+              </ScrollLink>
             </li>
             <li>
-              <Link
+              <ScrollLink
                 activeClass="active"
                 to="section-contact"
                 spy={true}
@@ -106,7 +106,7 @@ function Header({ light, logoSource, toggleMenu, headerToggler }) {
                 duration={500}
               >
                 <i className="icon-bubbles"></i>Contact
-              </Link>
+              </ScrollLink>
             </li> 
           </ul>
         </nav>

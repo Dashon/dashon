@@ -41,8 +41,33 @@ function BlogDetails(props) {
   // document.body.classList.add("dark");
   //Uncomment the above line if you use dark version
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": blogFile.replace(/-/g, ' '),
+    "image": "https://dashon.co/images/blog-default.jpg", 
+    "author": {
+      "@type": "Person",
+      "name": "Dashon Howard",
+      "url": "https://dashon.co/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Dashon Howard",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://dashon.co/images/logo_v2.png"
+      }
+    },
+    "datePublished": "2024-03-14", // Ideally this comes from blog metadata
+    "description": `Read more about ${blogFile.replace(/-/g, ' ')} on Dashon Howard's blog.`
+  };
+
   return (
     <>
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
       <Header
         logoSource="/images/logo.svg"
         toggleMenu={toggleMenu}
