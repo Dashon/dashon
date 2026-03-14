@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Markdown from "markdown-to-jsx";
-import Disqus from "disqus-react";
 import Header from "../components/layouts/Header";
 
 function BlogDetails(props) {
@@ -18,12 +17,7 @@ function BlogDetails(props) {
       });
   }, [content, blogFile]);
 
-  const disqusShortname = "bolby"; //found in your Disqus.com dashboard
-  const disqusConfig = {
-    url: "https://jthemes.net/themes/react/bolby", //Homepage link of this site.
-    identifier: blogId,
-    title: blogFile,
-  };
+
 
   const [toggleMenu, setToggleMenu] = useState(false);
 
@@ -69,7 +63,7 @@ function BlogDetails(props) {
         {JSON.stringify(structuredData)}
       </script>
       <Header
-        logoSource="/images/logo.svg"
+        logoSource="/images/logo_v2.png"
         toggleMenu={toggleMenu}
         headerToggler={headerToggler}
       />
@@ -79,12 +73,6 @@ function BlogDetails(props) {
           <div className="container">
             <div className="blog-single shadow-dark p-30">
               <Markdown>{content}</Markdown>
-              <div className="mi-blog-details-comments mt-30">
-                <Disqus.DiscussionEmbed
-                  shortname={disqusShortname}
-                  config={disqusConfig}
-                />
-              </div>
             </div>
           </div>
         </div>

@@ -32,7 +32,7 @@ function HomepageDark() {
     <>
       <Header
       light
-        logoSource="/images/logo.svg"
+        logoSource="/images/logo_v2.png"
         toggleMenu={toggleMenu}
         headerToggler={headerToggler}
       />
