@@ -4,15 +4,15 @@ import Pagetitle from "../elements/Pagetitle";
 import Portfolio from "../elements/Portfolio";
 
 const allData = [
-  {
-    id: 1,
-    title: "CareerGym",
-    category: "R&D",
-    image: "images/works/careergym.png",
-    logo: "images/works/CareerGym-logo.png",
-    link: "https://careergym.app",
-    description: "Your personal career fitness trainer."
-  },
+  // {
+  //   id: 1,
+  //   title: "CareerGym",
+  //   category: "R&D",
+  //   image: "images/works/careergym.png",
+  //   logo: "images/works/CareerGym-logo.png",
+  //   link: "https://careergym.app",
+  //   description: "Your personal career fitness trainer."
+  // },
   {
     id: 2,
     title: "GitKetchup",
@@ -22,15 +22,15 @@ const allData = [
     link: "https://gitketchup.com",
     description: "Turn git activity into cinematic stories."
   },
-  {
-    id: 3,
-    title: "HeadsUp",
-    category: "R&D",
-    image: "images/works/headsup.png",
-    logo: "images/works/HeadsUp-logo.png",
-    link: "https://headsup.city",
-    description: "AR property intelligence for investors."
-  },
+  // {
+  //   id: 3,
+  //   title: "HeadsUp",
+  //   category: "R&D",
+  //   image: "images/works/headsup.png",
+  //   logo: "images/works/HeadsUp-logo.png",
+  //   link: "https://headsup.city",
+  //   description: "AR property intelligence for investors."
+  // },
   {
     id: 4,
     title: "PlayAction Studios",
@@ -40,15 +40,15 @@ const allData = [
     link: "https://playactionstudios.com",
     description: "Film + interactive media experiments."
   },
-  {
-    id: 5,
-    title: "Sink",
-    category: "Coming Soon",
-    image: "images/works/sink.png",
-    logo: "images/works/Sink-Logo.svg",
-    link: "https://sink.chat",
-    description: "Encrypted chat for the paranoid."
-  },
+  // {
+  //   id: 5,
+  //   title: "Sink",
+  //   category: "Coming Soon",
+  //   image: "images/works/sink.png",
+  //   logo: "images/works/Sink-Logo.svg",
+  //   link: "https://sink.chat",
+  //   description: "Encrypted chat for the paranoid."
+  // },
   {
     id: 6,
     title: "VibeFeedback",
