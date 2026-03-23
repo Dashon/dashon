@@ -132,7 +132,7 @@ function PortfolioSection() {
       <div className="container">
         <Pagetitle title="Portfolio" />
         {/* Start Portfolio Filters */}
-        <ScrollAnimation
+        {/* <ScrollAnimation
           animateIn="fadeInUp"
           animateOut="fadeInOut"
           animateOnce={true}
@@ -153,7 +153,7 @@ function PortfolioSection() {
               </li>
             ))}
           </ul>
-        </ScrollAnimation>
+        </ScrollAnimation> */}
         {/* End Portfolio Filters */}
 
         {/* Start Portfolio Items */}
